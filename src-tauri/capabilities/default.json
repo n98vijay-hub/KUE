@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Lantern's window may invoke core commands and listen for context events. No plugin grants networking, filesystem, or shell access.",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

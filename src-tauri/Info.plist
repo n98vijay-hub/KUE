@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSCameraUsageDescription</key>
+  <string>KUE uses the camera locally to detect whether a face is present and to recognise you. Frames are analysed in memory and are never recorded, stored, or sent anywhere.</string>
+  <key>NSHighResolutionCapable</key><true/>
+</dict>
+</plist>

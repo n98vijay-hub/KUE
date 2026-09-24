@@ -1,0 +1,249 @@
+# Lantern — reasoning configuration.
+#
+# Every threshold and weight used by the reasoning core lives in this file.
+# Nothing in the Rust source hard-codes a decision boundary. Edit this file to
+# change behaviour; the app reloads it on start.
+
+schema_version = 1
+
+[camera]
+# Analysis rate requested from the sensing layer. Frames arriving faster are
+# dropped, never queued.
+target_fps = 4.0
+# A camera observation older than this is treated as stale rather than current.
+observation_stale_seconds = 3.0
+
+# How KUE judges its own MEASURING, as distinct from what it measured.
+# Observation only: nothing here changes an identity or authorization decision.
+# Added 2026-09-20 with the perception-observability slice.
+[perception]
+# A measurement younger than this is current. At 4 fps a frame arrives every
+# 0.25 s, so a second without one already means something is late.
+fresh_within_seconds = 1.0
+# A pipeline heartbeat older than this says nothing about now. The sensing layer
+# sends one every second whether or not a frame was produced.
+heartbeat_within_seconds = 3.0
+# How often a sample is kept when nothing changed. Every change of measurement
+# state is kept regardless of this.
+sample_every_seconds = 1.0
+# A routine stage reaches local memory only if it took at least this long. The
+# pump's tick and context build run 4x a second and are almost always under a
+# millisecond; writing them all would be 316,000 rows a day of "nothing
+# happened" (measured, 2026-09-20). Percentiles over ALL of them are still
+# computed in memory and shown in Diagnostics. Rare stages — the model's
+# phases, safety, intent, privacy clearance — are always written.
+persist_stage_above_ms = 50
+
+[identity]
+# HONESTY NOTE -------------------------------------------------------------
+# Decision thresholds are derived from the MEASURED spread of your own
+# enrollment samples (leave-one-out p95 distance), multiplied by the ratios
+# below. They are calibrated against you and nobody else. Until you run the
+# app with another person in frame, the reject side is an UNVALIDATED
+# HEURISTIC and the UI says so.
+# --------------------------------------------------------------------------
+
+# distance <= accept_ratio * reference  -> candidate for MY_FACE_CONFIRMED
+accept_ratio = 1.15
+# distance >= reject_ratio * reference  -> candidate for UNKNOWN_PERSON
+reject_ratio = 3.0
+# Floors, so an unusually tight enrollment cannot create an impossible threshold.
+min_geometry_reference = 0.06
+min_featureprint_reference = 0.08
+# Relative trust of the two descriptors in the DISPLAYED combined number.
+# These are NOT independent evidence: both are derived from the same camera.
+#
+# MEASURED, on this machine: across a 20-minute gap the FeaturePrint distance for
+# the same face drifted to 4.5x the enrollment spread while landmark geometry
+# stayed at 0.91x. FeaturePrint is a general image-similarity embedding, so it
+# tracks lighting and background at least as much as identity. Geometry is
+# therefore weighted higher, and neither descriptor may make a claim alone.
+geometry_weight = 0.60
+featureprint_weight = 0.40
+
+# A claim of MY_FACE_CONFIRMED or UNKNOWN_PERSON requires this many descriptors
+# to agree. With fewer available, or when they disagree, Lantern stays
+# IDENTITY_UNCERTAIN. This is why one drifting descriptor cannot, on its own,
+# accuse you of being a stranger.
+min_descriptors_for_claim = 2
+# Below this Vision capture-quality score, identity is not judged at all.
+min_capture_quality = 0.20
+# Beyond these head rotations the descriptors become unreliable.
+max_abs_yaw_deg = 45.0
+max_abs_pitch_deg = 35.0
+# Consecutive agreeing frames required before a state is promoted.
+confirm_frames = 3
+# Once earned, a claim is carried through frames that could not be MEASURED
+# (head pose past the limits above, capture quality below the floor, a missing
+# descriptor) for at most this long after the last real measurement. A frame
+# that is measured and disagrees still demotes at once, and NO_FACE /
+# MULTIPLE_PEOPLE still apply immediately.
+#
+# MEASURED, on this machine: without a hold, 102 of 168 events in a 12-minute
+# session were identity flips. Of 21 recorded confirmed->uncertain->confirmed
+# dropouts the median lasted ~1.5s and 17 were shorter than 2.3s.
+hold_unmeasurable_seconds = 2.0
+# The identity shown on screen changes on the frame that changes it. An identity
+# state is written to the event stream and local memory only once it has held
+# this long, dated from when it began; states that came and went in between are
+# counted in the next recorded event rather than hidden.
+#
+# MEASURED, on this machine, after the hold above: across 623s of camera time
+# 107 identity events were recorded. NO_FACE states lasted a median 0.29s — one
+# frame in which Vision missed the face — and 67 of 117 states held under 1s.
+event_min_seconds = 1.0
+# Below this many enrolled samples, identity is always IDENTITY_UNCERTAIN.
+minimum_samples_for_identity = 3
+
+[computer]
+# Seconds since the last HID event, below which RECENT_INPUT is true.
+recent_input_seconds = 60.0
+# The sensing layer samples once per second. A reading older than this is not
+# presented as current: if sampling stops, the frontmost app and input timing
+# disappear from the context rather than freezing at their last values.
+observation_stale_seconds = 5.0
+
+[environment]
+# Body and hand pose run far less often than face analysis: they are the most
+# expensive Vision requests Lantern makes, and posture does not change four
+# times a second. Scene classification is slower still. Under thermal pressure
+# or Low Power Mode both intervals are stretched by the same factor as the
+# camera analysis rate.
+pose_interval_seconds = 1.0
+scene_interval_seconds = 10.0
+# A joint counts as located at or above this Vision confidence.
+joint_min_confidence = 0.4
+# "Upper body visible" needs this many of nose, neck, left and right shoulder.
+upper_body_min_joints = 3
+# When no face is detected but an upper body is, the person is treated as
+# present. Vision misses faces for a frame at a time (measured: NO_FACE states
+# lasting a median 0.29s); a visible body is independent evidence that nobody
+# left. Identity is never inferred from a body.
+body_counts_as_presence = true
+hand_min_confidence = 0.5
+hand_min_joints = 10
+# Whole-frame classification labels below this confidence are not shown.
+scene_label_min_confidence = 0.30
+scene_max_labels = 5
+# Mean frame brightness (0-1) below which the room is reported as too dark for
+# reliable face detection.
+low_light_brightness = 0.12
+
+[pause]
+# A reading already in flight when pause is sent may still arrive. Anything
+# arriving later than this after pause took effect means the sensing layer did
+# not stop sampling; it is discarded and surfaced as a contradiction.
+in_flight_grace_seconds = 1.5
+
+[performance]
+# Analysis rate used while macOS reports thermal pressure or Low Power Mode is
+# on. Face analysis is the most expensive thing Lantern does; running it at the
+# full rate on a hot or battery-constrained Mac is not worth the cost.
+reduced_fps = 1.0
+# ProcessInfo.thermalState values that trigger the reduced rate.
+reduce_on_thermal_states = ["SERIOUS", "CRITICAL"]
+reduce_in_low_power_mode = true
+
+[activity]
+# How long a face may be missing before "present" stops being asserted.
+face_absent_grace_seconds = 4.0
+
+[confidence]
+# Temporal consistency scales confidence between this floor and 1.0.
+temporal_floor = 0.55
+# Seconds of a stable conclusion needed to reach the full temporal factor.
+full_confidence_seconds = 6.0
+
+# How much each signal source is trusted. Applied to every evidence item
+# originating from that source.
+[sensor_reliability]
+camera_vision = 0.85
+system_workspace = 1.0
+system_hid = 1.0
+temporal = 0.90
+
+# Weight of each kind of evidence. Contribution = weight x strength x reliability.
+[evidence_weights]
+identity_confirmed = 3.0
+identity_uncertain = 1.0
+face_present = 2.0
+face_absent = 2.0
+multiple_people = 2.5
+recent_input = 2.5
+no_recent_input = 2.0
+frontmost_app_known = 1.5
+track_continuity = 1.0
+low_capture_quality = 1.0
+camera_unavailable = 2.0
+computer_unavailable = 2.0
+# Counted only when no face is detected: a visible upper body keeps "present"
+# from collapsing on a one-frame face-detection miss. Lower than face_present,
+# because a body says nothing about who it is and a chair can look like one.
+upper_body_visible = 1.5
+# A caveat on camera readings taken in a dark room.
+low_light = 1.0
+
+[storage]
+# Maximum events retained in the local database.
+max_events = 20000
+# Maximum context snapshots retained. Snapshot bodies are ~20KB, so an untrimmed
+# table at a 10s interval would grow by roughly 170MB per day, forever.
+max_snapshots = 5000
+# Context snapshots are written at most this often.
+snapshot_interval_seconds = 10
+
+[access]
+# Owner presence (LEVEL_1) is held this long after you were last confirmed.
+owner_left_after_seconds = 10.0
+# The session locks when you have not been confirmed for this long, and any
+# Touch ID grant is revoked. Coming back requires re-confirmation.
+lock_after_seconds = 60.0
+# A Touch ID or login-password grant (LEVEL_3) lasts at most this long.
+strong_auth_valid_seconds = 300.0
+# A single-use grant (LEVEL_4, or a fresh LEVEL_3) must be used within this long.
+single_use_window_seconds = 30.0
+# CONTINUITY. LEVEL_2 earned by a corroborated measured match is kept through
+# frames that measure NOTHING — capture quality under the floor, head pose past
+# the limits, a missing descriptor, a match still being corroborated — while the
+# SAME face track stays in view, for at most this long after that match. It ends
+# at once on any measurement that does not match you, a different face track, a
+# stranger, a second face, stale readings, the camera stopping, pause, kill or
+# lock, and it never unlocks a locked session. Identity itself is still shown as
+# IDENTITY_UNCERTAIN: this holds authorization, not the identity claim.
+#
+# MEASURED, on this Mac, 2026-09-14, owner at the desk: capture quality ranged
+# 0.12–0.27 against the 0.20 floor. 49 of 55 IDENTITY_UNCERTAIN periods were
+# frames that could not be measured, 2 were measurements that did not match.
+# Of 15 uncertain periods that ended with you confirmed again, 12 lasted under
+# 3 s after the 2 s identity hold, and the others 6.5 s, 10.4 s and 20.8 s. 15 s
+# covers all but the longest; past it, access falls to LEVEL_0 until you are
+# measured again. High-risk actions still need Touch ID at LEVEL_3.
+unmeasured_hold_seconds = 15.0
+# A gap with no face at all shorter than this does not end that continuity: a
+# frame in which Vision missed a face that is still there (measured median
+# 0.29 s). Longer, and it is treated as leaving. Kept below the sensing layer's
+# 1.5 s track timeout, so a face that returns after a real absence is a new track.
+face_gap_grace_seconds = 1.0
+
+[voice]
+# How much KUE says aloud: SILENT, BRIEF (questions for you, outcomes, problems),
+# NORMAL (BRIEF plus a word when an action starts) or DETAILED (plus the access
+# check at Confirm). Nothing here widens WHAT may be spoken: every sentence
+# passes the speech gate and the privacy firewall regardless.
+verbosity = "NORMAL"
+# 1.0 is the voice's normal pace (0.6–1.6). Volume is a share of system volume.
+speed = 1.0
+volume = 1.0
+# A voice identifier, or empty for KUE's default: a female voice in `language`,
+# not a novelty voice and never a Personal Voice, of the best installed quality.
+# MEASURED on this Mac, 2026-09-15: every installed English voice is default
+# (compact) quality, so the default is Samantha (en-US). Enhanced and Premium
+# voices can be added in System Settings → Accessibility → Spoken Content and
+# are then preferred automatically; KUE never downloads one itself.
+voice = ""
+language = "en-US"
+# Answers to questions you speak are spoken. Answers to typed questions only if true.
+speak_typed_answers = false
+# A spoken "yes" confirms only a request that has waited at most this long.
+# Older ones are confirmed on screen.
+spoken_confirmation_seconds = 60.0

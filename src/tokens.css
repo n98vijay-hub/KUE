@@ -1,0 +1,394 @@
+/* KUE design system — the tokens, and the rules that apply everywhere.
+   Written from docs/KUE_DESIGN_SYSTEM.md. Components use tokens only.
+
+   Loaded before styles.css, which holds the older Diagnostics styles and
+   inherits the corrected ink values from here. */
+
+:root {
+  /* ---- surfaces ---- */
+  --bg:            #0a0b0e;
+  --bg-raised:     rgba(255, 255, 255, 0.028);
+  --bg-raised-2:   rgba(255, 255, 255, 0.052);
+  --bg-sunken:     rgba(0, 0, 0, 0.22);
+  --hairline:      rgba(255, 255, 255, 0.072);
+  --hairline-soft: rgba(255, 255, 255, 0.042);
+  --scrim:         rgba(6, 7, 9, 0.62);
+
+  /* ---- ink. Every value measured against --bg; all pass WCAG AA (4.5:1). ---- */
+  --ink:   #e9e6e2;  /* 15.82:1 */
+  --ink-2: #9d9892;  /*  6.88:1 */
+  --ink-3: #8e8981;  /*  5.67:1 — was #6a6862, 3.53:1, which failed */
+  --ink-4: #807b74;  /*  4.69:1 — was #4a4844, 2.16:1, which failed */
+
+  /* ---- meaning. One accent, one job each. ---- */
+  --presence:     #f0b46a;  /* 10.72:1 — KUE is here and attending. Never a button. */
+  --presence-dim: rgba(240, 180, 106, 0.14);
+  --affirm:       #86c79c;  /*  9.99:1 — verified success, and nothing else */
+  --caution:      #d4ab6a;  /*  9.21:1 — needs you, unconfirmed, unknown */
+  --alert:        #d98a83;  /*  7.42:1 — failed, denied, blocked */
+  --absent:       #7e8390;  /*  5.19:1 — off, unavailable, not implemented */
+  --focus:        #8ab4f8;  /*  9.34:1 — the keyboard focus ring, and nothing else */
+
+  /* older names still used by Diagnostics */
+  --warm:     var(--presence);
+  --warm-dim: var(--presence-dim);
+
+  /* ---- space ---- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px;
+
+  /* ---- shape ---- */
+  --radius:      14px;
+  --radius-sm:    9px;
+  --radius-pill: 999px;
+
+  /* ---- type. Seven steps, none below 11px. ---- */
+  --t-presence: 1.571rem;  /* 22px */
+  --t-lead:     1.214rem;  /* 17px */
+  --t-body:     0.964rem;  /* 13.5px */
+  --t-support:  0.893rem;  /* 12.5px */
+  --t-meta:     0.821rem;  /* 11.5px */
+  --t-label:    0.786rem;  /* 11px */
+
+  /* ---- motion ---- */
+  --m-word:   120ms;
+  --m-enter:  180ms;
+  --m-sheet:  220ms;
+  --m-presence: 400ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Keyboard focus, everywhere, on everything. The app had no :focus-visible rule
+   at all, which made it unusable without a pointer. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* KUE's own sentences, error text and action ids must be selectable. Only the
+   title bar's drag region keeps user-select: none. */
+body { user-select: text; }
+.titlebar { user-select: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* MARK: - The window */
+
+.kue {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: var(--t-body);
+}
+
+.kue-top {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: 0 var(--s-4) 0 86px;   /* traffic lights */
+  height: 46px;
+  flex: 0 0 46px;
+  -webkit-app-region: drag;
+  border-bottom: 1px solid var(--hairline-soft);
+  background: rgba(10, 11, 14, 0.7);
+  backdrop-filter: blur(20px);
+}
+.kue-top button, .kue-top a { -webkit-app-region: no-drag; }
+
+.kue-name {
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+}
+
+.kue-body { display: flex; flex: 1; min-height: 0; }
+
+.kue-stream {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: var(--s-5);
+}
+.kue-stream-inner { max-width: 720px; margin: 0 auto; }
+
+.kue-context {
+  width: 320px;
+  flex: 0 0 320px;
+  border-left: 1px solid var(--hairline-soft);
+  overflow-y: auto;
+  padding: var(--s-5) var(--s-4);
+}
+
+/* MARK: - Presence */
+
+.presence { display: flex; align-items: flex-start; gap: var(--s-3); margin-bottom: var(--s-5); }
+
+.presence-glyph {
+  width: 9px; height: 9px; border-radius: 50%;
+  margin-top: 9px;
+  flex: 0 0 9px;
+  background: var(--absent);
+  transition: background var(--m-presence) ease, box-shadow var(--m-presence) ease;
+}
+.presence-glyph.here    { background: var(--presence); box-shadow: 0 0 10px 1px rgba(240, 180, 106, 0.55); }
+.presence-glyph.unsure  { background: transparent; border: 1.5px solid var(--ink-3); }
+.presence-glyph.blocked { background: var(--alert); }
+.presence-glyph.off     { background: var(--absent); }
+
+.presence-said { font-size: var(--t-presence); line-height: 1.3; font-weight: 500; color: var(--ink); }
+.presence-detail { font-size: var(--t-support); color: var(--ink-3); margin-top: var(--s-1); }
+
+/* MARK: - Trust strip */
+
+.trust { display: flex; align-items: center; gap: var(--s-1); flex-wrap: wrap; margin-left: auto; }
+
+.trust-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 0; background: transparent;
+  font: inherit; font-size: var(--t-meta);
+  color: var(--ink-3);
+  padding: 4px var(--s-2);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+.trust-chip:hover { background: var(--bg-raised-2); color: var(--ink-2); }
+.trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--absent); flex: 0 0 6px; }
+.trust-chip.on      .trust-dot { background: var(--presence); }
+.trust-chip.blocked .trust-dot { background: var(--alert); }
+.trust-chip.unknown .trust-dot { background: transparent; border: 1px solid var(--ink-4); }
+.trust-chip.paused  .trust-dot { background: var(--caution); }
+
+/* MARK: - Activity line */
+
+.activity {
+  display: flex; align-items: center; gap: var(--s-2);
+  min-height: 22px;
+  font-size: var(--t-support);
+  color: var(--ink-2);
+  margin-bottom: var(--s-4);
+}
+.activity-mark { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px; background: var(--ink-4); }
+.activity.working  .activity-mark { background: var(--presence); animation: kue-pulse 1.6s ease-in-out infinite; }
+.activity.waiting  .activity-mark { background: var(--caution); }
+.activity.done     .activity-mark { background: var(--affirm); }
+.activity.wrong    .activity-mark { background: var(--alert); }
+.activity-verified { color: var(--affirm); font-size: var(--t-meta); }
+
+@keyframes kue-pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.35 } }
+
+@media (prefers-reduced-motion: reduce) {
+  /* A pulse that cannot pulse must still read as "something is happening". */
+  .activity.working .activity-mark { background: var(--caution); }
+}
+
+/* MARK: - Attention */
+
+.attention {
+  display: flex; align-items: flex-start; gap: var(--s-3);
+  border: 1px solid rgba(240, 180, 106, 0.3);
+  background: var(--presence-dim);
+  border-radius: var(--radius);
+  padding: var(--s-3) var(--s-4);
+  margin-bottom: var(--s-4);
+}
+.attention-said { flex: 1; color: var(--ink); font-size: var(--t-body); }
+.attention-row { display: flex; gap: var(--s-2); flex-shrink: 0; }
+
+/* MARK: - Buttons */
+
+.kue-btn {
+  font: inherit; font-size: var(--t-support);
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 5px var(--s-3);
+  cursor: pointer;
+}
+.kue-btn:hover { background: var(--bg-raised-2); color: var(--ink); }
+.kue-btn[disabled] { opacity: 0.45; cursor: default; }
+
+/* The one filled button in the system: the thing waiting for you. */
+.kue-btn.affirm {
+  background: var(--presence-dim);
+  border-color: rgba(240, 180, 106, 0.4);
+  color: var(--ink);
+}
+.kue-btn.danger { color: var(--alert); }
+.kue-btn.plain { border-color: transparent; }
+.kue-btn.plain:hover { background: transparent; text-decoration: underline; }
+
+/* MARK: - Context column */
+
+.ctx-label {
+  font-size: var(--t-label); font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink-4);
+  margin-bottom: var(--s-3);
+}
+.ctx-item { display: flex; gap: var(--s-2); margin-bottom: var(--s-3); font-size: var(--t-support); color: var(--ink-2); }
+.ctx-basis {
+  font-size: var(--t-label); color: var(--ink-4);
+  flex: 0 0 auto; margin-top: 1px;
+}
+
+/* MARK: - Sheets */
+
+.sheet-scrim {
+  position: fixed; inset: 0; background: var(--scrim);
+  backdrop-filter: blur(2px);
+  z-index: 40;
+}
+.sheet {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 420px; max-width: 100%;
+  background: #0d0e12;
+  border-left: 1px solid var(--hairline);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  z-index: 41;
+  display: flex; flex-direction: column;
+  animation: sheet-in var(--m-sheet) var(--ease);
+}
+@keyframes sheet-in { from { transform: translateX(16px); opacity: 0 } to { transform: none; opacity: 1 } }
+
+.sheet-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--s-4) var(--s-5);
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.sheet-title { font-size: var(--t-lead); color: var(--ink); }
+.sheet-body { padding: var(--s-5); overflow-y: auto; }
+
+.sheet-row {
+  display: flex; align-items: flex-start; gap: var(--s-3);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.sheet-row:last-child { border-bottom: 0; }
+.sheet-row-name { color: var(--ink); font-size: var(--t-body); }
+.sheet-row-said { color: var(--ink-3); font-size: var(--t-support); margin-top: 2px; }
+.sheet-row-limit { color: var(--ink-4); font-size: var(--t-meta); margin-top: var(--s-1); }
+
+.sheet-group {
+  font-size: var(--t-label); font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink-4);
+  margin: var(--s-5) 0 var(--s-2);
+}
+.sheet-group:first-child { margin-top: 0; }
+
+.pill {
+  font-size: var(--t-label); letter-spacing: 0.04em;
+  border: 1px solid var(--hairline); border-radius: var(--radius-pill);
+  padding: 2px var(--s-2); color: var(--ink-3);
+  white-space: nowrap; flex-shrink: 0;
+}
+.pill.live    { color: var(--affirm); border-color: rgba(134, 199, 156, 0.35) }
+.pill.partial { color: var(--caution); border-color: rgba(212, 171, 106, 0.35) }
+.pill.missing { color: var(--absent) }
+
+/* MARK: - Responsive. Nothing stretches; the context column becomes a sheet. */
+
+@media (max-width: 1040px) {
+  .kue-context { display: none; }
+}
+@media (max-width: 820px) {
+  .kue-stream { padding: var(--s-4); }
+  .sheet { width: 100%; }
+}
+
+/* MARK: - Disclosure ("How did this go?")
+
+   Closed by default. Everything engineering lives inside one of these, so the
+   face of a moment is one sentence and the record is one click away. */
+
+.how { margin-top: var(--s-2); }
+.how > summary {
+  font-size: var(--t-meta);
+  color: var(--ink-4);
+  cursor: pointer;
+  list-style: none;
+}
+.how > summary::-webkit-details-marker { display: none; }
+.how > summary::before { content: "▸ "; }
+.how[open] > summary::before { content: "▾ "; }
+.how > summary:hover { color: var(--ink-3); }
+.how > *:not(summary) { margin-top: var(--s-2); }
+
+/* The trust strip's own row. It is always visible and always fits: it is the
+   answer to "is it watching me?", so it must never be what gets squeezed out. */
+.kue-trust-row {
+  display: flex;
+  align-items: center;
+  padding: var(--s-2) var(--s-4) var(--s-2) 82px;
+  border-bottom: 1px solid var(--hairline-soft);
+  overflow-x: auto;
+}
+.kue-trust-row .trust { margin-left: 0; flex-wrap: nowrap; }
+.trust-chip { white-space: nowrap; }
+
+/* MARK: - Storage
+   The one place in the window with a proportional graphic, and it draws exactly
+   one measured ratio: used against capacity. No other bar, no percentage KUE
+   did not measure. */
+
+.storage-headline {
+  font-size: var(--t-lead); color: var(--ink);
+  line-height: 1.45; margin-bottom: var(--s-3);
+}
+
+.storage-bar {
+  height: 8px; border-radius: var(--radius-pill);
+  background: var(--bg-sunken); border: 1px solid var(--hairline-soft);
+  overflow: hidden;
+}
+.storage-bar-fill {
+  display: block; height: 100%;
+  background: var(--warm); opacity: 0.75;
+}
+
+.storage-finding { color: var(--ink); font-size: var(--t-body); line-height: 1.5; }
+
+.storage-limit {
+  color: var(--caution); font-size: var(--t-meta);
+  margin-top: var(--s-2); line-height: 1.45;
+}
+
+.storage-kind {
+  display: flex; align-items: baseline; gap: var(--s-3);
+  margin: var(--s-5) 0 var(--s-2);
+  padding-bottom: var(--s-2); border-bottom: 1px solid var(--hairline-soft);
+}
+.storage-kind-name { font-size: var(--t-body); color: var(--ink); font-weight: 600; }
+
+.storage-item {
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.storage-item-head { display: flex; align-items: baseline; gap: var(--s-3); }
+.storage-item-name {
+  font-size: var(--t-body); color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.storage-item-head .sheet-row-said { margin-left: auto; white-space: nowrap; }
+
+.storage-because {
+  display: flex; gap: var(--s-2); align-items: flex-start;
+  margin-top: var(--s-2);
+  font-size: var(--t-support); color: var(--ink-3); line-height: 1.5;
+}
+.ctx-basis.caution { color: var(--caution); }
+
+.storage-measured { color: var(--ink-4); font-size: var(--t-meta); margin-top: var(--s-2); }
+
+.storage-pick {
+  display: flex; align-items: baseline; gap: var(--s-2);
+  cursor: pointer; min-width: 0;
+}
+.storage-pick input { accent-color: var(--warm); margin: 0; flex: 0 0 auto; }

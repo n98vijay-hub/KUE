@@ -1,0 +1,19 @@
+[package]
+name = "lantern"
+version.workspace = true
+edition.workspace = true
+description = "A private personal AI that observes local context honestly."
+
+[lib]
+name = "lantern_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+lantern-core = { path = "../core" }
+libc = "0.2"

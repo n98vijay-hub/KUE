@@ -1,0 +1,55 @@
+# binaries in live worktree
+-rwx------ 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 108960 2026-09-17 01:22:43.992478721 +0000 .claude/worktrees/personal-ai-prototype-continue-47ecde/auth/bin/kue-auth
+.claude/worktrees/personal-ai-prototype-continue-47ecde/auth/bin/kue-auth: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
+-rwx------ 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 161520 2026-09-17 01:22:46.657686229 +0000 .claude/worktrees/personal-ai-prototype-continue-47ecde/act/bundle/KueAct.app/Contents/MacOS/kue-act
+.claude/worktrees/personal-ai-prototype-continue-47ecde/act/bundle/KueAct.app/Contents/MacOS/kue-act: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
+-rwx------ 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 111104 2026-09-17 01:22:47.798114754 +0000 .claude/worktrees/personal-ai-prototype-continue-47ecde/voice/bin/kue-voice
+.claude/worktrees/personal-ai-prototype-continue-47ecde/voice/bin/kue-voice: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
+-rwx------ 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 117184 2026-09-17 01:22:45.073380336 +0000 .claude/worktrees/personal-ai-prototype-continue-47ecde/mind/bin/lantern-mind
+.claude/worktrees/personal-ai-prototype-continue-47ecde/mind/bin/lantern-mind: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
+-rwx------ 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 862816 2026-09-17 01:22:43.085344964 +0000 .claude/worktrees/personal-ai-prototype-continue-47ecde/sensing/bundle/LanternSense.app/Contents/MacOS/lantern-sense
+.claude/worktrees/personal-ai-prototype-continue-47ecde/sensing/bundle/LanternSense.app/Contents/MacOS/lantern-sense: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
+# .app anywhere (depth-limited)
+./target/release/bundle/macos/Lantern.app
+./target/debug/bundle/macos/Lantern.app
+./.claude/worktrees/personal-ai-prototype-continue-47ecde/act/bundle/KueAct.app
+./.claude/worktrees/personal-ai-prototype-continue-47ecde/sensing/bundle/LanternSense.app
+./sensing/bundle/LanternSense.app
+# dist dirs
+-rw------- 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 392 2026-09-17 01:22:50.444613319 +0000 .claude/worktrees/personal-ai-prototype-continue-47ecde/dist/index.html
+
+.claude/worktrees/personal-ai-prototype-continue-47ecde/dist:
+total 4
+drwx------  4 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 128 2026-09-17 01:22:50.444579820 +0000 .
+drwx------ 27 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 864 2026-09-15 16:23:43.883578865 +0000 ..
+drwx------  4 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 128 2026-09-17 01:22:50.444489530 +0000 assets
+-rw-------  1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 392 2026-09-17 01:22:50.444613319 +0000 index.html
+
+.claude/worktrees/personal-ai-prototype-continue-47ecde/dist/assets:
+total 308
+drwx------ 4 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot    128 2026-09-17 01:22:50.444489530 +0000 .
+drwx------ 4 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot    128 2026-09-17 01:22:50.444579820 +0000 ..
+-rw------- 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 287366 2026-09-17 01:22:50.444408157 +0000 index-C-eVjI3V.js
+-rw------- 1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  21434 2026-09-17 01:22:50.444545612 +0000 index-DH_fS4Xl.css
+
+dist:
+total 12
+drwx------  5 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  160 2026-09-15 13:48:05.605299595 +0000 .
+drwx------ 25 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  800 2026-09-17 21:02:28.603158161 +0000 ..
+-rw-------  1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 6148 2026-09-15 13:48:05.607873033 +0000 .DS_Store
+drwx------  4 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  128 2026-09-14 20:13:58.662840621 +0000 assets
+-rw-------  1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  392 2026-09-14 20:13:58.662978745 +0000 index.html
+# target release bins
+-rwx------     1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  44133736 2026-09-16 14:06:36.396482780 +0000 lantern
+-rw-------     1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot     10884 2026-09-15 16:34:29.472607186 +0000 lantern.toml
+-rw-------     1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot  39200712 2026-09-17 00:46:37.847615805 +0000 liblantern_core.rlib
+-rw-------     1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 353814400 2026-09-16 14:06:33.241598283 +0000 liblantern_lib.a
+-rwx------     1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot    462664 2026-09-16 14:06:33.736134168 +0000 liblantern_lib.dylib
+-rw-------     1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 104587056 2026-09-16 14:06:33.905464797 +0000 liblantern_lib.rlib
+-rwx------    1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 15782640 2026-09-17 01:23:37.230120899 +0000 lantern
+-rw-------    1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot    10884 2026-09-15 16:34:29.472607186 +0000 lantern.toml
+-rwx------    1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 36732008 2026-09-14 19:49:17.065266643 +0000 lantern
+-rw-------    1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot     3954 2026-09-14 20:03:06.380409894 +0000 lantern.toml
+-rwx------    1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot 13452864 2026-09-14 20:14:27.414814187 +0000 lantern
+-rw-------    1 rcw-018kdsu6kjmbzmrttkmawiot rcw-018kdsu6kjmbzmrttkmawiot     3954 2026-09-14 20:03:06.380409894 +0000 lantern.toml
+# logs/db/sqlite/jsonl/png in worktrees

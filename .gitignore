@@ -1,0 +1,47 @@
+node_modules/
+dist/
+target/
+sensing/bundle/
+.DS_Store
+*.jsonl
+mind/bin/
+auth/bin/
+voice/bin/
+.claude/
+act/bundle/
+calendar/bin/
+
+# Never committed: secrets, keys and certificates.
+.env
+.env.*
+*.p12
+*.pem
+*.cer
+*.key
+*.mobileprovision
+*.provisionprofile
+*.keychain
+*.keychain-db
+
+# Never committed: personal data. KUE's memory lives in
+# ~/Library/Application Support/Lantern, outside the repository — these patterns
+# are for a copy that ends up here by accident (an export, a test left behind).
+*.sqlite
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
+*.db-wal
+*.db-shm
+KILLED
+
+# Never committed: recordings. KUE records no audio; a file like this in the
+# repository would be a measurement clip or a mistake, and neither belongs here.
+*.wav
+*.m4a
+*.caf
+*.aiff
+*.aif
+*.mp3
+*.flac
+*.log

@@ -1,0 +1,83 @@
+KUE evidence — the last 30 minutes, 2026-09-20 13:21
+
+ACCESS — how often the owner's session changed
+  211 changes, 422.0 per hour at this rate
+  Access: IDENTITY_UNCERTAIN at LEVEL_0.  x101
+  Access: AUTHORIZED_USER at LEVEL_2.  x65
+  Access: AUTHORIZED_USER at LEVEL_3.  x20
+  Access: AUTHORIZED_USER_LOW_CONFIDENCE at LEVEL_1.  x9
+  Access: AUTHORIZED_USER_LOW_CONFIDENCE at LEVEL_3.  x8
+  Access: NO_PERSON at LEVEL_0.  x6
+  Access: LOCKED at LEVEL_0.  x2
+
+MEASUREMENT — how the measuring went
+  MEASUREMENT_FRESH  x803   age avg 141.0 ms, worst 988 ms
+  MEASUREMENT_AMBIGUOUS  x267   age avg 124.0 ms, worst 268 ms
+  MEASUREMENT_CONFLICT  x174   age avg 136.0 ms, worst 608 ms
+  MEASUREMENT_DELAYED  x124   age avg 751.0 ms, worst 6008 ms
+  NO_PERSON  x76   age avg 140.0 ms, worst 321 ms
+  CAMERA_UNAVAILABLE  x19   age avg 0 ms, worst 0 ms
+  MEASUREMENT_STALE  x14   age avg 2243.0 ms, worst 3417 ms
+
+  Of the samples with no current measurement, how many were a live pipeline being late?
+  delayed (pipeline proven alive): 124   stale (nothing proves one is coming): 14
+
+IDENTITY vs MEASUREMENT — what KUE concluded, against how well it could see
+  MY_FACE_CONFIRMED / MEASUREMENT_FRESH / LEVEL_2  x636
+  IDENTITY_UNCERTAIN / MEASUREMENT_AMBIGUOUS / LEVEL_0  x267
+  IDENTITY_UNCERTAIN / MEASUREMENT_CONFLICT / LEVEL_0  x174
+  IDENTITY_UNCERTAIN / MEASUREMENT_FRESH / LEVEL_0  x112
+  IDENTITY_UNCERTAIN / MEASUREMENT_DELAYED / LEVEL_0  x89
+  NO_FACE / NO_PERSON / LEVEL_0  x57
+  MY_FACE_CONFIRMED / MEASUREMENT_FRESH / LEVEL_3  x54
+  NOT_OBSERVING / CAMERA_UNAVAILABLE / LEVEL_0  x19
+  MY_FACE_CONFIRMED / MEASUREMENT_DELAYED / LEVEL_2  x15
+  MY_FACE_CONFIRMED / MEASUREMENT_DELAYED / LEVEL_3  x15
+  NO_FACE / NO_PERSON / LEVEL_3  x13
+  IDENTITY_UNCERTAIN / MEASUREMENT_STALE / LEVEL_0  x12
+
+STALLS — every moment the measurement crossed the staleness limit
+  2026-09-20 13:07:02  age 2975 ms · analysis 72 ms · capture gap 46 ms · model MODEL_IDLE · MEASUREMENT_DELAYED
+  2026-09-20 13:06:59  age 3416 ms · analysis 468 ms · capture gap 40 ms · model MODEL_IDLE · MEASUREMENT_DELAYED
+  2026-09-20 13:06:53  age 3217 ms · analysis 3201 ms · capture gap 38 ms · model MODEL_IDLE · MEASUREMENT_STALE
+  2026-09-20 13:06:13  age 2642 ms · analysis 117 ms · capture gap 36 ms · model MODEL_IDLE · MEASUREMENT_DELAYED
+  2026-09-20 13:06:09  age 3417 ms · analysis 2954 ms · capture gap 41 ms · model MODEL_IDLE · MEASUREMENT_STALE
+  2026-09-20 13:05:31  age 3320 ms · analysis 2981 ms · capture gap 40 ms · model MODEL_IDLE · MEASUREMENT_DELAYED
+  2026-09-20 13:05:24  age 3159 ms · analysis 3234 ms · capture gap 35 ms · model MODEL_PREFILL · MEASUREMENT_STALE
+  2026-09-20 13:05:20  age 3091 ms · analysis 3253 ms · capture gap 40 ms · model MODEL_PREFILL · MEASUREMENT_DELAYED
+  2026-09-20 13:04:27  age 3082 ms · analysis 16 ms · capture gap 790 ms · model MODEL_IDLE · MEASUREMENT_DELAYED
+  2026-09-20 12:59:23  age 6008 ms · analysis 3066 ms · capture gap 52 ms · model MODEL_PREFILL · MEASUREMENT_DELAYED
+  2026-09-20 12:59:22  age 4998 ms · analysis 3066 ms · capture gap 39 ms · model MODEL_PREFILL · MEASUREMENT_DELAYED
+  2026-09-20 12:59:21  age 3858 ms · analysis 3066 ms · capture gap 39 ms · model MODEL_PREFILL · MEASUREMENT_DELAYED
+  2026-09-20 12:59:20  age 3352 ms · analysis 3066 ms · capture gap 36 ms · model MODEL_PREFILL · MEASUREMENT_STALE
+  2026-09-20 12:59:16  age 3121 ms · analysis 15 ms · capture gap 35 ms · model MODEL_PREFILL · MEASUREMENT_DELAYED
+
+STAGES — where the time went (only stages slow enough or rare enough to keep)
+  MODEL_PREFILL  n=2  avg 14745.0 ms  worst 15596 ms
+  MODEL_GENERATION  n=2  avg 1704.0 ms  worst 3353 ms
+  VISION_ANALYZE  n=1136  avg 95.0 ms  worst 3253 ms
+  CORE_TICK  n=2186  avg 30.0 ms  worst 1890 ms
+  CONTEXT_BUILD  n=2147  avg 0.0 ms  worst 337 ms
+  SAFETY_SCREEN  n=4  avg 0.0 ms  worst 0 ms
+  PRIVACY_CLEARANCE  n=2  avg 0.0 ms  worst 0 ms
+  INTENT_ROUTING  n=2  avg 0.0 ms  worst 0 ms
+
+MODEL — answers and how long they took
+  2026-09-20 13:05:28  The on-device model answered in 17.2s.
+  2026-09-20 13:05:10  Asked the on-device model; the prompt passed the privacy firewall with 5 kind(s) withheld.
+  2026-09-20 12:59:24  The on-device model answered in 15.7s.
+  2026-09-20 12:59:09  Asked the on-device model; the prompt passed the privacy firewall with 5 kind(s) withheld.
+
+LOCAL MEMORY — what it costs
+  events 9306 · snapshots 5000 · perception samples 1477 · stage timings 5481
+  file  59M, of which 45.0 MB is free space it will reuse
+
+PRIVACY — what the firewall refused, all time
+  FACE_MEASUREMENT → LOCAL_MEMORY  DENY  x23383
+  BODY_JOINT_POSITIONS → LOCAL_MEMORY  DENY  x23383
+  HAND_POSITIONS → LOCAL_MEMORY  DENY  x23383
+  FACE_DESCRIPTOR → LOCAL_MODEL  DENY  x35
+  FACE_MEASUREMENT → LOCAL_MODEL  DENY  x35
+  BODY_JOINT_POSITIONS → LOCAL_MODEL  DENY  x35
+  HAND_POSITIONS → LOCAL_MODEL  DENY  x35
+  IDENTITY_CHECK_RESULT → LOCAL_MODEL  DENY  x35

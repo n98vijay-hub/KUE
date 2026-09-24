@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "KUE",
+  "version": "0.1.0",
+  "identifier": "dev.lantern.desktop",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "KUE",
+        "width": 1200,
+        "height": 860,
+        "minWidth": 940,
+        "minHeight": 660,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "theme": "Dark"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app"
+    ],
+    "icon": [
+      "icons/icon.icns"
+    ],
+    "resources": {
+      "../config/lantern.toml": "lantern.toml"
+    },
+    "macOS": {
+      "minimumSystemVersion": "26.0"
+    }
+  }
+}
