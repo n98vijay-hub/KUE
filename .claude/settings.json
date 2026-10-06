@@ -1,0 +1,60 @@
+{
+  "worktree": {
+    "baseRef": "head"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(./scripts/test-kue.sh)",
+      "Bash(./scripts/status-kue.sh)",
+      "Bash(cargo test *)",
+      "Bash(cargo check *)",
+      "Bash(cargo build *)",
+      "Bash(cargo clippy *)",
+      "Bash(cargo fmt *)",
+      "Bash(npm test)",
+      "Bash(npm run build)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git branch --list *)",
+      "Bash(git switch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git merge --no-ff --no-commit *)",
+      "Bash(git merge --abort)"
+    ],
+    "ask": [
+      "Bash(./scripts/test-kue.sh --live*)",
+      "Bash(git branch -d *)",
+      "Bash(git branch -D *)",
+      "Bash(git worktree remove *)",
+      "Bash(git worktree prune *)",
+      "Bash(npm install *)",
+      "Bash(npm ci *)",
+      "Bash(cargo add *)",
+      "Bash(cargo install *)",
+      "Bash(brew *)"
+    ],
+    "deny": [
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean *)",
+      "Bash(git rebase *)",
+      "Bash(git checkout main)",
+      "Bash(git switch main)",
+      "Bash(rm -rf *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Read(~/Library/Application Support/Lantern/**)",
+      "Edit(~/Library/Application Support/Lantern/**)",
+      "Read(~/KUE-private/**)",
+      "Edit(~/KUE-private/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(/KUE Life Back Office/manual-test/**)",
+      "Edit(/KUE Life Back Office/**)"
+    ]
+  }
+}

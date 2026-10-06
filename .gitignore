@@ -7,7 +7,10 @@ sensing/bundle/
 mind/bin/
 auth/bin/
 voice/bin/
-.claude/
+.claude/*
+!.claude/agents/
+!.claude/skills/
+!.claude/settings.json
 act/bundle/
 calendar/bin/
 
@@ -45,3 +48,5 @@ KILLED
 *.mp3
 *.flac
 *.log
+# The owner's planning material and manual-test documents. Never committed.
+KUE Life Back Office/

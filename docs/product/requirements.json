@@ -1,0 +1,1795 @@
+{
+ "about": "KUE Release 1 requirements, parsed from the requirements document. FR = functional, NFR = non-functional, CHK = a check that runs in code. A test that proves a requirement carries its id in the test name.",
+ "features": [
+  {
+   "id": "F-01",
+   "name": "Work Ledger",
+   "priority": "Must",
+   "sprint": "1",
+   "serves": "BO-02"
+  },
+  {
+   "id": "F-02",
+   "name": "Work orders",
+   "priority": "Must",
+   "sprint": "1",
+   "serves": "BO-02"
+  },
+  {
+   "id": "F-03",
+   "name": "Earned percent complete",
+   "priority": "Must",
+   "sprint": "2",
+   "serves": "BO-02"
+  },
+  {
+   "id": "F-04",
+   "name": "The board",
+   "priority": "Must",
+   "sprint": "2 to 3",
+   "serves": "BO-02"
+  },
+  {
+   "id": "F-05",
+   "name": "Evidence and explain-back",
+   "priority": "Must",
+   "sprint": "2, 10",
+   "serves": "BO-02, BO-07"
+  },
+  {
+   "id": "F-06",
+   "name": "Automatic dashboards and flow view",
+   "priority": "Must",
+   "sprint": "2 to 3",
+   "serves": "BO-02"
+  },
+  {
+   "id": "F-07",
+   "name": "Shift handover",
+   "priority": "Must",
+   "sprint": "3",
+   "serves": "BO-02"
+  },
+  {
+   "id": "F-08",
+   "name": "Scorecard",
+   "priority": "Must",
+   "sprint": "3",
+   "serves": "BO-07"
+  },
+  {
+   "id": "F-09",
+   "name": "Health and pause",
+   "priority": "Must",
+   "sprint": "4",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-10",
+   "name": "Approval by Touch ID or password",
+   "priority": "Must",
+   "sprint": "4 to 5",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-11",
+   "name": "Rules-first answers",
+   "priority": "Must",
+   "sprint": "5",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-12",
+   "name": "Document watcher",
+   "priority": "Must",
+   "sprint": "6",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-13",
+   "name": "Extraction with checks",
+   "priority": "Must",
+   "sprint": "6",
+   "serves": "BO-07"
+  },
+  {
+   "id": "F-14",
+   "name": "Promises",
+   "priority": "Must",
+   "sprint": "6",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-15",
+   "name": "Recurring items",
+   "priority": "Should",
+   "sprint": "6",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-16",
+   "name": "Calendar",
+   "priority": "Should",
+   "sprint": "7",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-17",
+   "name": "Mail, read-only",
+   "priority": "Should",
+   "sprint": "7",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-18",
+   "name": "Responsibilities",
+   "priority": "Must",
+   "sprint": "7 to 8",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-19",
+   "name": "Morning board",
+   "priority": "Must",
+   "sprint": "8",
+   "serves": "BO-03, BO-05"
+  },
+  {
+   "id": "F-20",
+   "name": "Reminders and interruption policy",
+   "priority": "Must",
+   "sprint": "8",
+   "serves": "BO-05"
+  },
+  {
+   "id": "F-21",
+   "name": "Coming-up view",
+   "priority": "Should",
+   "sprint": "8",
+   "serves": "BO-03"
+  },
+  {
+   "id": "F-22",
+   "name": "Kept Rate and monthly score",
+   "priority": "Must",
+   "sprint": "8, 10",
+   "serves": "BO-07"
+  },
+  {
+   "id": "F-23",
+   "name": "Risk score and approval levels",
+   "priority": "Must",
+   "sprint": "9",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-24",
+   "name": "Yes, Not yet, No",
+   "priority": "Must",
+   "sprint": "9",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-25",
+   "name": "Case binders",
+   "priority": "Must",
+   "sprint": "9, 14",
+   "serves": "BO-04"
+  },
+  {
+   "id": "F-26",
+   "name": "Onboarding",
+   "priority": "Must",
+   "sprint": "10, 16",
+   "serves": "BO-04, BO-06"
+  },
+  {
+   "id": "F-27",
+   "name": "\"This is wrong\"",
+   "priority": "Must",
+   "sprint": "10",
+   "serves": "BO-07"
+  },
+  {
+   "id": "F-28",
+   "name": "Data controls",
+   "priority": "Must",
+   "sprint": "10",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-29",
+   "name": "Night shift",
+   "priority": "Must",
+   "sprint": "11 to 12",
+   "serves": "BO-05"
+  },
+  {
+   "id": "F-30",
+   "name": "Stop-the-line and recovery",
+   "priority": "Must",
+   "sprint": "11 to 12",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-31",
+   "name": "Tool registry",
+   "priority": "Must",
+   "sprint": "13",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-32",
+   "name": "Draft replies and letters",
+   "priority": "Should",
+   "sprint": "13",
+   "serves": "BO-06"
+  },
+  {
+   "id": "F-33",
+   "name": "Form helper",
+   "priority": "Should",
+   "sprint": "13",
+   "serves": "BO-06"
+  },
+  {
+   "id": "F-34",
+   "name": "Payment preparation",
+   "priority": "Should",
+   "sprint": "14",
+   "serves": "BO-06"
+  },
+  {
+   "id": "F-35",
+   "name": "Hostile-content defence",
+   "priority": "Must",
+   "sprint": "14",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-36",
+   "name": "Signed installer and updates",
+   "priority": "Must",
+   "sprint": "9, 15",
+   "serves": "BO-04, BO-06"
+  },
+  {
+   "id": "F-37",
+   "name": "Corrective action",
+   "priority": "Must",
+   "sprint": "15",
+   "serves": "BO-07"
+  },
+  {
+   "id": "F-38",
+   "name": "Help and user guide",
+   "priority": "Must",
+   "sprint": "15",
+   "serves": "BO-06"
+  },
+  {
+   "id": "F-39",
+   "name": "Backup and restore",
+   "priority": "Must",
+   "sprint": "4, 17",
+   "serves": "BO-08"
+  },
+  {
+   "id": "F-40",
+   "name": "Share my numbers",
+   "priority": "Must",
+   "sprint": "Gap G-1",
+   "serves": "BO-05, BO-06"
+  },
+  {
+   "id": "F-41",
+   "name": "Leave cleanly",
+   "priority": "Should",
+   "sprint": "Gap G-2",
+   "serves": "BO-05"
+  },
+  {
+   "id": "F-42",
+   "name": "Tester agreement",
+   "priority": "Must",
+   "sprint": "Gap G-3",
+   "serves": "BO-04"
+  },
+  {
+   "id": "F-43",
+   "name": "Phone companion",
+   "priority": "Later",
+   "sprint": "Design note in 16",
+   "serves": "BO-10"
+  },
+  {
+   "id": "F-44",
+   "name": "Always-on host or encrypted cloud",
+   "priority": "Later",
+   "sprint": "Outline in 18",
+   "serves": "BO-10"
+  },
+  {
+   "id": "F-45",
+   "name": "Family sharing",
+   "priority": "Later",
+   "sprint": "Outline in 18",
+   "serves": "BO-10"
+  },
+  {
+   "id": "F-46",
+   "name": "PPAP supplier pack",
+   "priority": "Later",
+   "sprint": "Outline in 18",
+   "serves": "BO-10"
+  },
+  {
+   "id": "F-47",
+   "name": "Paid plans",
+   "priority": "Later",
+   "sprint": "After Release 1",
+   "serves": "BO-10"
+  }
+ ],
+ "requirements": [
+  {
+   "id": "FR-101",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "The ledger shall store work orders, steps, evidence, warrants, items, promises and answers as append-only records, each chained to the one before",
+   "stories": [
+    "S1-01",
+    "S0-07"
+   ],
+   "feature": "F-01",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-102",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "An integrity check shall fail when any past record has been altered",
+   "stories": [
+    "S1-01"
+   ],
+   "feature": "F-01",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-103",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "Every write shall pass the privacy firewall, and a record of an unknown kind shall be refused",
+   "stories": [
+    "S1-01"
+   ],
+   "feature": "F-01",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-104",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "A typed request shall become a work order with a plain-language restatement, acceptance criteria and a due date, and you shall be able to correct the restatement before accepting it",
+   "stories": [
+    "S1-02"
+   ],
+   "feature": "F-02",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-105",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "A step shall be in exactly one state: Planned, Built, Verified, Signed, Blocked or Failed. An illegal change of state shall be refused and every legal one recorded",
+   "stories": [
+    "S1-03"
+   ],
+   "feature": "F-02",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-106",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "A step shall not become Verified without a linked evidence record: test output, read-back or change summary",
+   "stories": [
+    "S1-04"
+   ],
+   "feature": "F-01",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-107",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "Existing goals, plans and transactions shall write ledger records from request to read-back",
+   "stories": [
+    "S1-05"
+   ],
+   "feature": "F-01",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-108",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "Builder and verifier runs shall write their stories, commits and test results to the ledger",
+   "stories": [
+    "S1-06"
+   ],
+   "feature": "F-01",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-109",
+   "type": "Functional",
+   "module": "Ledger and work orders",
+   "text": "Percent complete shall be computed in code as the weighted sum of earned credit of 10, 40, 80 and 100, and an unverified step shall never exceed 40%",
+   "stories": [
+    "S2-01"
+   ],
+   "feature": "F-03",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-201",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "The board shall show Now, Handled, Needs your yes and Coming up, each read from a core projection of the ledger. No window component shall compute a state",
+   "stories": [
+    "S2-02"
+   ],
+   "feature": "F-04",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-202",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "For any step, the evidence panel shall show what changed, what was checked and what was read back, in plain language",
+   "stories": [
+    "S2-03"
+   ],
+   "feature": "F-05",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-203",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "Skipped, failed and unverified work shall appear in a Not done panel with its reason within one tick",
+   "stories": [
+    "S2-04"
+   ],
+   "feature": "F-04",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-204",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "Every accepted work order and every case shall get its own dashboard with no manual step: percent complete over time, each step's state, evidence coverage, time in each stage, and where the work is now and next",
+   "stories": [
+    "S2-05"
+   ],
+   "feature": "F-06",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-205",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "A shift handover report shall be generated from the ledger each morning, listing done, waiting, blocked and next, every line traceable to a record",
+   "stories": [
+    "S3-01"
+   ],
+   "feature": "F-07",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-206",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "A flow view shall draw the work as a diagram from the ledger, move an item when its step changes state, and show what blocks what",
+   "stories": [
+    "S3-02"
+   ],
+   "feature": "F-06",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-207",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "The scorecard shall chart each measure over time against its target, and each figure shall equal its documented ledger query run by hand",
+   "stories": [
+    "S3-03"
+   ],
+   "feature": "F-08",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-208",
+   "type": "Functional",
+   "module": "Board and reporting",
+   "text": "A person reading the board cold shall be able to say what is happening now and what is next within 30 seconds",
+   "stories": [
+    "S3-04"
+   ],
+   "feature": "F-04",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-301",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "The sensing heartbeat shall tell delayed from absent, and every stall over 1 second shall be attributed to a named stage",
+   "stories": [
+    "S4-01"
+   ],
+   "feature": "F-09",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-302",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "Each subsystem shall report a health state, and the board shall answer \"why is KUE not doing anything?\"",
+   "stories": [
+    "S4-02"
+   ],
+   "feature": "F-09",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-303",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "Pause shall stop all watching and preparing while keeping the data, and a paused KUE shall say it is paused",
+   "stories": [
+    "S4-02"
+   ],
+   "feature": "F-09",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-304",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "A corrupted store shall be detected at launch, and the documented restore shall succeed",
+   "stories": [
+    "S4-03"
+   ],
+   "feature": "F-39",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-305",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "Approval shall be by a Touch ID or password session, with the camera as optional corroboration. Conflicting identity shall fail closed",
+   "stories": [
+    "S4-04"
+   ],
+   "feature": "F-10",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-306",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "Helpers shall load only from the signed bundle, and the enrollment file shall be unreadable without the Keychain",
+   "stories": [
+    "S5-02"
+   ],
+   "feature": "F-10",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-307",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "The model router shall try rules, then retrieval, then the on-device model, then a larger local model. Arithmetic and status questions shall never call a model",
+   "stories": [
+    "S5-01"
+   ],
+   "feature": "F-11",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-308",
+   "type": "Functional",
+   "module": "Reliability, identity and models",
+   "text": "Every agent shall stop within one tick of the kill switch",
+   "stories": [
+    "S18-01"
+   ],
+   "feature": "F-09",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-401",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "KUE shall read only sources the person allowed, and shall list those sources on request",
+   "stories": [
+    "S6-03",
+    "S10-01"
+   ],
+   "feature": "F-12",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-402",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "A document placed in the watched folder shall be recognised on the device within one minute, create a ledger record, and cause no network request",
+   "stories": [
+    "S6-03"
+   ],
+   "feature": "F-12",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-403",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "Extraction shall propose who, what, amount and due date, each with a confidence and its exact place in the source",
+   "stories": [
+    "S6-04"
+   ],
+   "feature": "F-13",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-404",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "Every extracted date and amount shall pass rule checks in code before it is shown as fact, and each check shall report passed, failed, not run or inconclusive",
+   "stories": [
+    "S6-04"
+   ],
+   "feature": "F-13",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-405",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "A field looked for and not found shall be recorded as not found. A field never looked for shall be absent from the record",
+   "stories": [
+    "S6-04"
+   ],
+   "feature": "F-13",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-406",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "A low-confidence or failed field shall be asked of the person with the page shown. KUE shall never fill it by guessing",
+   "stories": [
+    "S6-04"
+   ],
+   "feature": "F-13",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-407",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "A date that can be read two ways, such as 03/04/2027, shall be asked, not assumed",
+   "stories": [
+    "S6-04"
+   ],
+   "feature": "F-13",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-408",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "The same bill arriving twice, on paper and by mail, shall become one item that keeps both sources",
+   "stories": [
+    "S7-02"
+   ],
+   "feature": "F-13",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-409",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "Two items from one sender about a month or a year apart shall produce a proposed recurring item, and future promises shall be created only after the person agrees",
+   "stories": [
+    "S6-05"
+   ],
+   "feature": "F-15",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-410",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "With calendar permission granted, events shall stay on the Mac and deadlines may refer to them. With it denied, KUE shall say so and work without it",
+   "stories": [
+    "S7-01"
+   ],
+   "feature": "F-16",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-411",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "Mail shall be read read-only by the option chosen in the Sprint 7 test, a bill arriving by mail shall become a promise, and KUE shall hold no ability to send mail",
+   "stories": [
+    "S7-02"
+   ],
+   "feature": "F-17",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-412",
+   "type": "Functional",
+   "module": "Watch and extract",
+   "text": "Text inside a document or a mail shall be treated as data. It shall never change KUE's instructions, policy or actions",
+   "stories": [
+    "S14-03"
+   ],
+   "feature": "F-35",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-501",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A promise shall have a due date, a source and an owner. Without a due date, KUE shall ask for one before accepting it",
+   "stories": [
+    "S6-01"
+   ],
+   "feature": "F-14",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-502",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A promise shall be in exactly one state: open, overdue, kept, dropped or missed",
+   "stories": [
+    "S6-02"
+   ],
+   "feature": "F-14",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-503",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A promise past its due time shall become overdue. After 48 more hours with no answer it shall become missed, leave the open list and stay on the record",
+   "stories": [
+    "S6-02"
+   ],
+   "feature": "F-14",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-504",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A kept promise shall record the date it was done and how that is known: by proof KUE read, or by the person's word",
+   "stories": [
+    "S6-02"
+   ],
+   "feature": "F-14",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-505",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A promise done after its due date shall be shown as kept late and shall not count toward Kept Rate",
+   "stories": [
+    "S8-06"
+   ],
+   "feature": "F-22",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-506",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A dropped promise shall keep the reason it was dropped",
+   "stories": [
+    "S6-02"
+   ],
+   "feature": "F-14",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-507",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A responsibility shall be a standing rule with the sources it watches and the deadlines and cases under it. Adopting one shall list what KUE will watch",
+   "stories": [
+    "S7-03"
+   ],
+   "feature": "F-18",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-508",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "A responsibility's state shall be computed in code as In control, Needs you or At risk from its items",
+   "stories": [
+    "S7-03",
+    "S8-04"
+   ],
+   "feature": "F-18",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-509",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "Days of margin shall be shown for each responsibility as the days to its nearest lapse date. A responsibility whose margin is shorter than the preparation time shall be marked At risk before the date arrives",
+   "stories": [
+    "S8-04"
+   ],
+   "feature": "F-18",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-510",
+   "type": "Functional",
+   "module": "Promises and responsibilities",
+   "text": "KUE shall offer the responsibility templates you approved, and shall accept one written in the person's own words",
+   "stories": [
+    "S7-03"
+   ],
+   "feature": "F-18",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-601",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "A morning board shall be produced every day at a set time with Handled, Needs your yes and Coming up, and items needing the person shall come first",
+   "stories": [
+    "S8-01"
+   ],
+   "feature": "F-19",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-602",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "Every line on the morning board shall trace to a ledger record",
+   "stories": [
+    "S8-01"
+   ],
+   "feature": "F-19",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-603",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "At most three questions shall be asked of the person at once",
+   "stories": [
+    "S8-01"
+   ],
+   "feature": "F-19",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-604",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "A reminder shall be delivered on the Mac only inside the interruption policy of importance, urgency, quiet hours and daily budget, and only the person shall be able to edit that policy",
+   "stories": [
+    "S8-02",
+    "S8-05"
+   ],
+   "feature": "F-20",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-605",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "The person shall be able to answer kept, not yet or dropped from the notification itself",
+   "stories": [
+    "S8-02"
+   ],
+   "feature": "F-20",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-606",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "After three \"not yet\" answers on one item, the question shall change to: drop it, or make it smaller?",
+   "stories": [
+    "S8-02"
+   ],
+   "feature": "F-20",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-607",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "An item whose words show distress shall no longer be chased",
+   "stories": [
+    "S8-02"
+   ],
+   "feature": "F-20",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-608",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "A coming-up view shall show the next 30, 60 and 90 days of deadlines, with the money due charted by week",
+   "stories": [
+    "S8-03"
+   ],
+   "feature": "F-21",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-609",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "Kept Rate shall be computed in code from the promises due in the period, and shall equal a hand count",
+   "stories": [
+    "S8-06"
+   ],
+   "feature": "F-22",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-610",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "The baseline question shall be asked once, before the first board, and never again. A skipped baseline shall be recorded as skipped",
+   "stories": [
+    "S8-06",
+    "S10-01"
+   ],
+   "feature": "F-22",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-611",
+   "type": "Functional",
+   "module": "Daily loop",
+   "text": "A monthly score shall show deadlines kept, kept late, missed and handled with a trend, and each number shall equal a hand count from the ledger",
+   "stories": [
+    "S10-05"
+   ],
+   "feature": "F-22",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-701",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "Every action shall carry a risk score from severity, occurrence and detection, mapped to approval levels 0 to 4 with defaults you approved. An unknown action shall score highest",
+   "stories": [
+    "S9-01"
+   ],
+   "feature": "F-23",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-702",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "Every prepared item shall offer Yes, Not yet and No, and a No shall require a reason",
+   "stories": [
+    "S9-02"
+   ],
+   "feature": "F-24",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-703",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "A Yes shall be signed and bound to the item's exact content, and any later change to that content shall void it",
+   "stories": [
+    "S9-02"
+   ],
+   "feature": "F-24",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-704",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "For any item, explain-back shall show the exact source line and the checks run, in plain words. A sentence with no source shall be removed",
+   "stories": [
+    "S10-02"
+   ],
+   "feature": "F-05",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-705",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "A case shall have a checklist of required documents, and every checklist item shall always exist, whatever the case type requires",
+   "stories": [
+    "S9-03"
+   ],
+   "feature": "F-25",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-706",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "Arriving documents shall be matched to checklist items, percent complete shall update, and missing items shall be named",
+   "stories": [
+    "S9-03"
+   ],
+   "feature": "F-25",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-707",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "Two documents in a case that disagree on a name, number, amount or date shall be reported with the page of each value",
+   "stories": [
+    "S9-03"
+   ],
+   "feature": "F-25",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-708",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "A draft shall never count toward a case's percent complete",
+   "stories": [
+    "S13-02"
+   ],
+   "feature": "F-25",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-709",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "A case shall close only with the person's signature. KUE shall report what it checked and found, and shall never state that a case is complete or compliant",
+   "stories": [
+    "S9-03",
+    "S10-07"
+   ],
+   "feature": "F-25",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-710",
+   "type": "Functional",
+   "module": "Proof, approval and case binders",
+   "text": "A case at 100% shall export as one file holding every document in checklist order with an index, and the export shall be recorded",
+   "stories": [
+    "S14-01"
+   ],
+   "feature": "F-25",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-801",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "Onboarding shall explain each permission in plain words before asking for it, and KUE shall work with any permission denied",
+   "stories": [
+    "S10-01",
+    "S7-01"
+   ],
+   "feature": "F-26",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-802",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "A new person starting unaided shall see a board with their own first item within 10 minutes",
+   "stories": [
+    "S10-01",
+    "S16-01"
+   ],
+   "feature": "F-26",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-803",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "Before any source is watched, onboarding shall show the tester agreement and record its acceptance",
+   "stories": [],
+   "feature": "F-42",
+   "priority": "Must",
+   "gap": [
+    "G-3"
+   ],
+   "note": "No story yet. Do not build until the owner accepts the gap story."
+  },
+  {
+   "id": "FR-804",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "\"This is wrong\" shall correct the item, keep the reason, and create a work order",
+   "stories": [
+    "S10-03"
+   ],
+   "feature": "F-27",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-805",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "The person shall be able to see everything KUE keeps about them",
+   "stories": [
+    "S10-04"
+   ],
+   "feature": "F-28",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-806",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "Forgetting one item or one source shall remove what was learned from it, and the raw database shall show it gone",
+   "stories": [
+    "S10-04"
+   ],
+   "feature": "F-28",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-807",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "Wipe everything shall remove all KUE data from the Mac",
+   "stories": [
+    "S10-04"
+   ],
+   "feature": "F-28",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-808",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "Forgetting shall leave a marker that a deletion happened, with none of the deleted content, and the integrity check shall still pass",
+   "stories": [
+    "S10-04",
+    "S0-07"
+   ],
+   "feature": "F-28",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-809",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "The person shall be able to export everything KUE keeps, as the original files and as plain JSON lines",
+   "stories": [],
+   "feature": "F-41",
+   "priority": "Should",
+   "gap": [
+    "G-2"
+   ],
+   "note": "No story yet. Do not build until the owner accepts the gap story."
+  },
+  {
+   "id": "FR-810",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "On leaving, KUE shall ask one optional question about the reason, once",
+   "stories": [],
+   "feature": "F-41",
+   "priority": "Should",
+   "gap": [
+    "G-2"
+   ],
+   "note": "No story yet. Do not build until the owner accepts the gap story."
+  },
+  {
+   "id": "FR-811",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "After seven days without the board being opened, KUE shall ask one short question once, and shall not ask again for that lapse",
+   "stories": [],
+   "feature": "F-41",
+   "priority": "Should",
+   "gap": [
+    "G-2"
+   ],
+   "note": "No story yet. Do not build until the owner accepts the gap story."
+  },
+  {
+   "id": "FR-812",
+   "type": "Functional",
+   "module": "Onboarding, feedback and data controls",
+   "text": "On request, KUE shall produce a counts-only report of days opened, items, answers and scores, with no document content. The person shall read it and send it by hand, and nothing shall be sent automatically",
+   "stories": [],
+   "feature": "F-40",
+   "priority": "Must",
+   "gap": [
+    "G-1"
+   ],
+   "note": "No story yet. Do not build until the owner accepts the gap story."
+  },
+  {
+   "id": "FR-901",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "With the window closed, a queue and scheduler shall keep watching. A document arriving at night shall be read and appear on the next morning board",
+   "stories": [
+    "S11-01"
+   ],
+   "feature": "F-29",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-902",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "A standing approval shall have a scope, a limit and an expiry, and shall never cover approval levels 3 or 4",
+   "stories": [
+    "S11-02"
+   ],
+   "feature": "F-29",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-903",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "Unattended, only work under a standing approval shall run. A step above it shall stop and appear in Needs your yes",
+   "stories": [
+    "S12-01"
+   ],
+   "feature": "F-29",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-904",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "On a failed invariant, repeated failure, heat or an unknown state, the queue shall pause within one tick and say why",
+   "stories": [
+    "S11-03"
+   ],
+   "feature": "F-30",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-905",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "After a crash in the middle of a step, the step shall be marked unknown and then verified. It shall never be assumed successful",
+   "stories": [
+    "S12-02"
+   ],
+   "feature": "F-30",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-906",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "Over seven nights at least 95% of scheduled runs shall start, with no unverified success and every stop explained",
+   "stories": [
+    "S12-03"
+   ],
+   "feature": "F-29",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-907",
+   "type": "Functional",
+   "module": "Always on",
+   "text": "KUE shall slow itself under heat, and its CPU, memory, heat and power use while always on shall be recorded",
+   "stories": [
+    "S12-04"
+   ],
+   "feature": "F-30",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1001",
+   "type": "Functional",
+   "module": "Prepare and tools",
+   "text": "Every action shall be declared in a tool registry with its level, privacy class, risk, verifier and rollback. An undeclared action shall be refused, and an unavailable tool shall be reported as unavailable",
+   "stories": [
+    "S13-01"
+   ],
+   "feature": "F-31",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1002",
+   "type": "Functional",
+   "module": "Prepare and tools",
+   "text": "A draft reply shall cite the document it answers, shall be marked as a draft everywhere it appears, and shall never be sent by KUE",
+   "stories": [
+    "S13-02"
+   ],
+   "feature": "F-32",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-1003",
+   "type": "Functional",
+   "module": "Prepare and tools",
+   "text": "The form helper shall fill a copy of a form, show the source of every filled field, and leave unknown fields empty and listed",
+   "stories": [
+    "S13-03"
+   ],
+   "feature": "F-33",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-1004",
+   "type": "Functional",
+   "module": "Prepare and tools",
+   "text": "Payment preparation shall show payee, amount, due date and source together, and KUE shall start no payment",
+   "stories": [
+    "S14-02"
+   ],
+   "feature": "F-34",
+   "priority": "Should"
+  },
+  {
+   "id": "FR-1005",
+   "type": "Functional",
+   "module": "Prepare and tools",
+   "text": "Given 50 documents and mails carrying hidden instructions, KUE shall take no action and change no policy",
+   "stories": [
+    "S14-03"
+   ],
+   "feature": "F-35",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1101",
+   "type": "Functional",
+   "module": "Install, operate and support",
+   "text": "KUE shall install on a clean Mac without a security warning, and shall keep its permissions after an update",
+   "stories": [
+    "S9-04"
+   ],
+   "feature": "F-36",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1102",
+   "type": "Functional",
+   "module": "Install, operate and support",
+   "text": "An update shall preserve the ledger and the permissions. In Release 1 the person installs updates from a signed file, and KUE shall not fetch them itself",
+   "stories": [
+    "S15-04"
+   ],
+   "feature": "F-36",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1103",
+   "type": "Functional",
+   "module": "Install, operate and support",
+   "text": "A wrong item found after a yes shall open a corrective action, which shall close only with a linked regression test",
+   "stories": [
+    "S15-03"
+   ],
+   "feature": "F-37",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1104",
+   "type": "Functional",
+   "module": "Install, operate and support",
+   "text": "In-app help and a user guide shall let a new person complete their first three tasks without asking anyone",
+   "stories": [
+    "S15-05"
+   ],
+   "feature": "F-38",
+   "priority": "Must"
+  },
+  {
+   "id": "FR-1105",
+   "type": "Functional",
+   "module": "Install, operate and support",
+   "text": "A backup restored on a second user account shall run with the ledger intact",
+   "stories": [
+    "S17-03"
+   ],
+   "feature": "F-39",
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-01",
+   "type": "Non-functional",
+   "module": "Privacy",
+   "text": "No personal data shall leave the person's Mac in Release 1. Target: Zero, observed on the network at every phase gate",
+   "stories": [
+    "S6-03",
+    "S15-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-02",
+   "type": "Non-functional",
+   "module": "Privacy",
+   "text": "KUE shall open no network connection except one the person set up themselves. Target: The only candidate is a mailbox connection, if that option is chosen in Sprint 7",
+   "stories": [
+    "S7-02",
+    "S15-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-03",
+   "type": "Non-functional",
+   "module": "Privacy",
+   "text": "An agent shall receive only fields the privacy firewall has cleared. Target: Every model input",
+   "stories": [
+    "S1-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-04",
+   "type": "Non-functional",
+   "module": "Privacy",
+   "text": "Data at rest shall be protected. Enrollment is wrapped by the Keychain, and the store's protection is a named control or a risk you accepted. Target: Stated in the threat model",
+   "stories": [
+    "S5-02",
+    "S5-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-05",
+   "type": "Non-functional",
+   "module": "Security",
+   "text": "Every entry point shall have a control or an accepted risk signed by you. Target: All entry points",
+   "stories": [
+    "S0-08",
+    "S5-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-06",
+   "type": "Non-functional",
+   "module": "Security",
+   "text": "No critical or high finding shall be open at release. Target: Zero",
+   "stories": [
+    "S15-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-07",
+   "type": "Non-functional",
+   "module": "Reliability",
+   "text": "Scheduled runs shall start. Target: At least 95% over seven nights",
+   "stories": [
+    "S12-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-08",
+   "type": "Non-functional",
+   "module": "Reliability",
+   "text": "Access shall stay steady while the owner is seated. Target: Fewer than 10 changes an hour; zero false accepts for a second person",
+   "stories": [
+    "S4-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-09",
+   "type": "Non-functional",
+   "module": "Reliability",
+   "text": "The live test suite shall hold no stale or ignored test. Target: Each passes, or is deleted with a reason",
+   "stories": [
+    "S4-05"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-10",
+   "type": "Non-functional",
+   "module": "Performance",
+   "text": "Time to first text on the ten most common requests. Target: Median of 5 seconds or less",
+   "stories": [
+    "S5-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-11",
+   "type": "Non-functional",
+   "module": "Performance",
+   "text": "Time to read a document after it arrives. Target: 1 minute or less",
+   "stories": [
+    "S6-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-12",
+   "type": "Non-functional",
+   "module": "Performance",
+   "text": "Memory, CPU, cold start and battery. Target: Budgets are set in Sprint 15 and met on your Mac. No numbers exist yet",
+   "stories": [
+    "S15-02"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-13",
+   "type": "Non-functional",
+   "module": "Accuracy",
+   "text": "Amount and due date both right. Target: At least 90% of documents",
+   "stories": [
+    "S6-04",
+    "S17-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-14",
+   "type": "Non-functional",
+   "module": "Accuracy",
+   "text": "Steps with read-back evidence. Target: 100%",
+   "stories": [
+    "S12-03",
+    "S17-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-15",
+   "type": "Non-functional",
+   "module": "Accuracy",
+   "text": "Wrong items found after a yes. Target: Fewer than 5 per 100 signed",
+   "stories": [
+    "S17-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-16",
+   "type": "Non-functional",
+   "module": "Usability",
+   "text": "First board for a new person, unaided. Target: 10 minutes or less",
+   "stories": [
+    "S10-01",
+    "S16-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-17",
+   "type": "Non-functional",
+   "module": "Usability",
+   "text": "Now and next understood on a cold read. Target: 30 seconds or less",
+   "stories": [
+    "S3-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-18",
+   "type": "Non-functional",
+   "module": "Usability",
+   "text": "No code or internal term on any screen a user sees. Target: Checked against the design system",
+   "stories": [
+    "S2-03",
+    "S3-04",
+    "S15-05"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-19",
+   "type": "Non-functional",
+   "module": "Compatibility",
+   "text": "macOS on Apple silicon, English, US dollars, US date formats. Target: Your MacBook Air is the reference machine",
+   "stories": [
+    "S0-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-20",
+   "type": "Non-functional",
+   "module": "Maintainability",
+   "text": "Every functional requirement shall have a test or evidence named for it. Target: All, at release",
+   "stories": [
+    "S18-01"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-21",
+   "type": "Non-functional",
+   "module": "Recoverability",
+   "text": "A backup shall restore with the ledger intact. Target: Drilled before release, then monthly",
+   "stories": [
+    "S17-03",
+    "S18-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "NFR-22",
+   "type": "Non-functional",
+   "module": "Operability",
+   "text": "Local models shall be benchmarked again on the labelled document set. Target: Every quarter",
+   "stories": [
+    "S0-04",
+    "S18-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-01",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The date is real. Applies to: every due date. A date that does not exist fails. A due date already past is shown as overdue, never hidden",
+   "stories": [
+    "S6-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-02",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The date reads one way. Applies to: every date. Two readings are possible: inconclusive, and the person is asked",
+   "stories": [
+    "S6-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-03",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The amount is money. Applies to: every amount. It must parse with a currency and match the line it was read from, or the person is asked",
+   "stories": [
+    "S6-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-04",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The total matches its lines. Applies to: bills with line items. The sum differs from the total: both are shown",
+   "stories": [
+    "S6-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-05",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The amount is in the usual range. Applies to: a sender with three or more earlier bills. Outside the range: flagged for a look, never blocked",
+   "stories": [
+    "S6-05"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-06",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The payee is known. Applies to: every payee. A new payee, or changed payee details: flagged",
+   "stories": [
+    "S6-04"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-07",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "Not a duplicate. Applies to: every new item. Same sender, amount and period already on file: merged, both sources kept",
+   "stories": [
+    "S7-02"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-08",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "Recurrence. Applies to: items from one sender. About a month or a year apart: a recurring item is proposed",
+   "stories": [
+    "S6-05"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-09",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "Documents agree. Applies to: every case. A name, number, amount or date differs: reported with the page of each value",
+   "stories": [
+    "S9-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-10",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The checklist is covered. Applies to: every case. A required item has no document: named as missing. A draft does not count",
+   "stories": [
+    "S9-03",
+    "S13-02"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-11",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "Expiry ahead. Applies to: ids, policies, registrations. An expiry inside the watch window becomes a promise",
+   "stories": [
+    "S7-03"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-12",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "A source is present. Applies to: every sentence shown. No source: the sentence is removed",
+   "stories": [
+    "S10-02"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-13",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The signature still binds. Applies to: every signed answer. The content differs from what was signed: the signature is void",
+   "stories": [
+    "S9-02"
+   ],
+   "priority": "Must"
+  },
+  {
+   "id": "CHK-14",
+   "type": "Check",
+   "module": "Check catalogue",
+   "text": "The ledger chain holds. Applies to: the ledger. A record was altered: integrity failure, and the line stops",
+   "stories": [
+    "S1-01",
+    "S11-03"
+   ],
+   "priority": "Must"
+  }
+ ]
+}

@@ -1,0 +1,1786 @@
+{
+ "about": "KUE Release 1 backlog. Status is recorded here and nowhere else. Allowed status values: Not started, Planned, Built, Verified, Signed, Blocked. Only the owner sets Signed, with /kue-sign.",
+ "plan": {
+  "start": "2026-10-05",
+  "sprintDays": 7,
+  "sprints": 19,
+  "signOff": "2027-02-12",
+  "credit": {
+   "Not started": 0,
+   "Planned": 0.1,
+   "Built": 0.4,
+   "Verified": 0.8,
+   "Signed": 1,
+   "Blocked": 0
+  }
+ },
+ "epics": [
+  {
+   "id": "E0",
+   "name": "Foundation and build crew",
+   "firstSprint": 0,
+   "lastSprint": 0,
+   "outcome": "One repository, one truth, agents building overnight",
+   "gate": "main equals the integration branch. Two stories built unattended overnight. Local models benchmarked on the owner's own documents."
+  },
+  {
+   "id": "E1",
+   "name": "Work Ledger and board",
+   "firstSprint": 1,
+   "lastSprint": 3,
+   "outcome": "Every piece of work is registered, measured and explained, with its own dashboard",
+   "gate": "Owner follows one work order end to end on the board without opening code. Tampering is detected."
+  },
+  {
+   "id": "E2",
+   "name": "Reliability, approvals, speed",
+   "firstSprint": 4,
+   "lastSprint": 5,
+   "outcome": "KUE knows its own health, recognises the owner steadily, answers fast",
+   "gate": "Fewer than 10 access changes an hour while seated. Every stall over 1 s is attributed to a stage."
+  },
+  {
+   "id": "E3",
+   "name": "Daily loop: responsibilities, deadlines, morning board",
+   "firstSprint": 6,
+   "lastSprint": 8,
+   "outcome": "KUE holds standing responsibilities: it watches documents, mail and calendar, shows days of margin, and writes Handled, Needs your yes, Coming up every morning",
+   "gate": "The owner runs his real life on it for 7 days. Due date and amount are right on at least 90% of documents; nothing is guessed. Each responsibility shows its days of margin."
+  },
+  {
+   "id": "E4",
+   "name": "Proof, case binders, first five users",
+   "firstSprint": 9,
+   "lastSprint": 10,
+   "outcome": "Every prepared item carries its proof and needs a yes; five people the owner knows are using it",
+   "gate": "Five invited people have a board with their own real items. One case binder reaches 100% and is signed."
+  },
+  {
+   "id": "E5",
+   "name": "Always on: the night shift",
+   "firstSprint": 11,
+   "lastSprint": 12,
+   "outcome": "KUE keeps watching and preparing with the window closed, inside limits the owner set",
+   "gate": "Seven-night soak: at least 95% of runs start, no unverified success. Alpha users open the board at least 4 days in 7."
+  },
+  {
+   "id": "E6",
+   "name": "Prepare: drafts, forms, binders",
+   "firstSprint": 13,
+   "lastSprint": 14,
+   "outcome": "KUE drafts the reply, fills the form and assembles the binder; the owner sends and pays",
+   "gate": "KUE has sent and paid nothing. 50 hostile documents cause no action. A complete binder is exported."
+  },
+  {
+   "id": "E7",
+   "name": "Hardening and wider beta",
+   "firstSprint": 15,
+   "lastSprint": 17,
+   "outcome": "Secure, installable, and used by 20 to 30 people who are not the owner",
+   "gate": "Installs cleanly on another Mac. At least 15 beta users have a board with real items after a week. No critical finding open."
+  },
+  {
+   "id": "E8",
+   "name": "Launch readiness",
+   "firstSprint": 18,
+   "lastSprint": 18,
+   "outcome": "Release 1 warrant signed",
+   "gate": "14-day scorecard meets targets. Release warrant signed by the owner."
+  }
+ ],
+ "stories": [
+  {
+   "id": "S0-01",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Concept sign-off: owner approves or amends the concept document",
+   "ac": "Given the concept document, when the owner reviews it, then a decision (approve or amend) and the Sprint 0 decisions are recorded in the project.",
+   "role": "Product owner",
+   "points": 1,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Decision record",
+   "status": "Built",
+   "requirements": [],
+   "serves": "BO-09 (sign-off chain starts with the concept)"
+  },
+  {
+   "id": "S0-02",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Repository hygiene: fast-forward main, remove empty agent branches and old worktrees, move the resume folder out",
+   "ac": "Given the repository, when main is compared with kue/runtime-safety, then the difference is 0 commits; and the app the owner opens is built from the branch the owner reads.",
+   "role": "Developer",
+   "points": 2,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Git log",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-02 (one repository, one truth)"
+  },
+  {
+   "id": "S0-03",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Private off-machine backup of the repository",
+   "ac": "Given the backup, when it is cloned to a clean location, then the build and the core tests pass from that clone.",
+   "role": "Developer",
+   "points": 2,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-02 (the work survives the loss of the Mac)"
+  },
+  {
+   "id": "S0-04",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Hardware and local-model benchmark on the owner's own documents",
+   "ac": "Given 20 of the owner's real bills, notices and forms, when the on-device model and two or three larger local models read them, then accuracy on amount and due date, latency and memory are recorded, and a go or no-go on a larger local model is stated.",
+   "role": "Data engineer",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Benchmark report",
+   "status": "Not started",
+   "requirements": [
+    "NFR-19",
+    "NFR-22"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S0-05",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Build crew: unattended builder runs, one branch per story, two at a time, usage-limit guard",
+   "ac": "Given three queued stories, when the crew runs overnight, then two run at once and commit on their own branches with test results, the third waits, and reaching the usage limit pauses cleanly with nothing uncommitted.",
+   "role": "Architect",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Git log",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BR-16; agents AG-08 to AG-10"
+  },
+  {
+   "id": "S0-06",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Keep-awake setup and watchdog",
+   "ac": "Given a 12-hour unattended run on power, when a builder run is killed, then it is restarted within 5 minutes and the restart is recorded.",
+   "role": "Developer",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "Agent AG-11 (watchdog)"
+  },
+  {
+   "id": "S0-07",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Ledger schema v0 and Definition of Done adopted",
+   "ac": "Given the schema for work order, step, evidence and warrant, when the owner reviews it, then it is approved and this sprint's work orders are recorded against it.",
+   "role": "Business analyst",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "FR-101",
+    "FR-808"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S0-08",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Threat model outline and privacy policy v2 draft (what may ever leave the Mac)",
+   "ac": "Given the outline, when it is read, then it lists assets, actors and entry points, and the owner has approved the leave-the-Mac policy.",
+   "role": "Architect",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "NFR-05"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S0-09",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Production plan baseline delivered as the first board",
+   "ac": "Given the workbook and the live dashboard, when they are opened, then every story has acceptance criteria, an evidence type and a sprint, and percent complete is computed from status.",
+   "role": "Scrum master",
+   "points": 1,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Built",
+   "requirements": [],
+   "serves": "BO-02 (plan baseline as the first board)"
+  },
+  {
+   "id": "S0-10",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Manual test: recruit five people, get their written consent, ask the baseline question",
+   "ac": "Given five invited people, when the week ends, then each has agreed in writing to how their documents are handled, including that a cloud AI reads them during the test, and has answered the baseline question before receiving any board.",
+   "role": "Owner",
+   "points": 2,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Decision record",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-01; BR-20"
+  },
+  {
+   "id": "S1-01",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Ledger store: append-only tables, each record chained to the one before, written through the privacy firewall",
+   "ac": "Given a stored ledger, when any past record is altered, then the integrity check fails; and a record of an unknown kind is denied.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-101",
+    "FR-102",
+    "FR-103",
+    "NFR-03",
+    "CHK-14"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S1-02",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Work order: a request becomes a work order with plain-language restatement, acceptance criteria and due date",
+   "ac": "Given a request typed in the window, when it is accepted, then a work order exists and the owner could correct the restatement before accepting.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-104"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S1-03",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Step state machine: Planned, Built, Verified, Signed, plus Blocked and Failed",
+   "ac": "Given a step, when an illegal transition is attempted, then it is refused; and every legal transition writes a ledger record.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-105"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S1-04",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Evidence records linked to steps (test output, read-back, change summary)",
+   "ac": "Given a step with no evidence record, when it is moved to Verified, then the move is refused.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-106"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S1-05",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Existing goals, plans and transactions write ledger entries",
+   "ac": "Given the live plan run from September, when it is repeated, then the ledger holds the full trail from request to read-back.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-107"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S1-06",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Build-crew adapter: builder and verifier runs write their stories and evidence to the ledger",
+   "ac": "Given this sprint's stories, when they finish, then each appears in the ledger with its commits and test results.",
+   "role": "Data engineer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-108"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S1-07",
+   "epic": "E1",
+   "sprint": 1,
+   "title": "Manual test, week 1: a morning board prepared by hand for each of the five, every day",
+   "ac": "Given the documents each person sent, when each morning comes, then a board is sent with at most three questions, each quoting its source, and every answer and every day without an answer is recorded.",
+   "role": "Owner",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-01"
+  },
+  {
+   "id": "S2-01",
+   "epic": "E1",
+   "sprint": 2,
+   "title": "Percent-complete engine: earned credit 10 / 40 / 80 / 100 with weights",
+   "ac": "Given three sample work orders, when percent complete is computed, then it matches the hand calculation, and an unverified step never exceeds 40%.",
+   "role": "Data engineer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-109"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S2-02",
+   "epic": "E1",
+   "sprint": 2,
+   "title": "Board v1 in the KUE window: Now, Handled, Needs your yes, Coming up",
+   "ac": "Given the board, when any text on it is traced, then it comes from a core projection and no window component computes a state.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-201"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S2-03",
+   "epic": "E1",
+   "sprint": 2,
+   "title": "Evidence panel in plain language",
+   "ac": "Given any step, when the owner opens its evidence, then what changed, what was checked and what was read back are shown without code.",
+   "role": "Business analyst",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-202",
+    "NFR-18"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S2-04",
+   "epic": "E1",
+   "sprint": 2,
+   "title": "Not-done panel: skipped, failed and unverified work with reasons",
+   "ac": "Given a deliberately failed step, when one tick passes, then it appears in the panel with its reason.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-203"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S2-05",
+   "epic": "E1",
+   "sprint": 2,
+   "title": "Automatic dashboard for every work order: progress chart, step states, evidence coverage, time in each stage, flow diagram",
+   "ac": "Given any new work order, when it is accepted, then its dashboard page exists without any manual step and shows percent complete over time, each step's state, what is verified and what is not, and where the work is now and next.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-204"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S2-06",
+   "epic": "E1",
+   "sprint": 2,
+   "title": "Manual test, week 2, and the decision: continue, change or stop",
+   "ac": "Given two weeks of records, when the test ends, then reply days, items kept on time and the comparison with each person's baseline are computed, and the owner records one decision against the criteria written before the test began.",
+   "role": "Owner",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Decision record",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-01 (stop point)"
+  },
+  {
+   "id": "S3-01",
+   "epic": "E1",
+   "sprint": 3,
+   "title": "Shift handover report generated from the ledger each morning",
+   "ac": "Given a morning, when the report is produced, then every line traces to a ledger record and it lists done, waiting, blocked and next.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-205"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S3-02",
+   "epic": "E1",
+   "sprint": 3,
+   "title": "Flow view: the work as a diagram drawn from the ledger",
+   "ac": "Given a step that changes state, when the view refreshes, then the item moves on the diagram and blockers are shown.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-206"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S3-03",
+   "epic": "E1",
+   "sprint": 3,
+   "title": "Scorecard v1 with trend charts: Kept Rate, first-pass yield, escapes, coverage, owner wait",
+   "ac": "Given each measure, when its documented query is run by hand, then the result matches the board, and each measure is charted over time with its target line.",
+   "role": "Data engineer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-207"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S3-04",
+   "epic": "E1",
+   "sprint": 3,
+   "title": "Board usability pass against the design system",
+   "ac": "Given the board, when the owner reads it cold, then he can say what is happening now and what is next within 30 seconds.",
+   "role": "Business analyst",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-208",
+    "NFR-17",
+    "NFR-18"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S3-05",
+   "epic": "E1",
+   "sprint": 3,
+   "title": "Owner live test of Phase 1 and random audit of one item",
+   "ac": "Given one work order chosen by the owner, when it is followed end to end, then the outcome is recorded and nothing needed reading code.",
+   "role": "QA tester",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-02; BR-16 (owner audit)"
+  },
+  {
+   "id": "S3-06",
+   "epic": "E1",
+   "sprint": 3,
+   "title": "Phase 1 gate review, re-baseline of velocity, sign-off",
+   "ac": "Given the Phase 1 evidence, when the owner signs the warrant, then main is fast-forwarded and the plan dates are re-baselined once.",
+   "role": "Scrum master",
+   "points": 1,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-02; BR-17 (re-baseline once)"
+  },
+  {
+   "id": "S4-01",
+   "epic": "E2",
+   "sprint": 4,
+   "title": "Sensing heartbeat: delayed is told apart from absent",
+   "ac": "Given a 30-minute recording, when stalls over 1 second are listed, then each is attributed to a named stage.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-301"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S4-02",
+   "epic": "E2",
+   "sprint": 4,
+   "title": "Subsystem health states and an answer to 'why is KUE not doing anything?'",
+   "ac": "Given a killed helper, when one tick passes, then the board shows it as degraded and says why; a paused KUE says it is paused.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-302",
+    "FR-303"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S4-03",
+   "epic": "E2",
+   "sprint": 4,
+   "title": "Database integrity check on launch and a stated recovery path",
+   "ac": "Given a corrupted copy of the store, when KUE launches, then the corruption is detected and the documented restore succeeds.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-304"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S4-04",
+   "epic": "E2",
+   "sprint": 4,
+   "title": "Approval session by Touch ID or password; camera as optional corroboration",
+   "ac": "Given the owner seated for 30 minutes, when access changes are counted, then there are fewer than 10 an hour, conflicting identity still fails closed, and a second-person run shows 0 false accepts.",
+   "role": "Architect",
+   "points": 8,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-305",
+    "NFR-08"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S4-05",
+   "epic": "E2",
+   "sprint": 4,
+   "title": "Live test suite repaired: no stale or ignored tests",
+   "ac": "Given the live suite, when it is run as a set, then every test passes or has been deleted with a reason.",
+   "role": "QA tester",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "NFR-09"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S5-01",
+   "epic": "E2",
+   "sprint": 5,
+   "title": "Model router: rules, then retrieval, then on-device model, then larger local model",
+   "ac": "Given the ten most common requests, when time to first text is measured before and after, then the median improves; arithmetic and status questions never call a model.",
+   "role": "Architect",
+   "points": 8,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Benchmark report",
+   "status": "Not started",
+   "requirements": [
+    "FR-307",
+    "NFR-10"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S5-02",
+   "epic": "E2",
+   "sprint": 5,
+   "title": "Helpers loaded only from the signed bundle; enrollment wrapped by the Keychain",
+   "ac": "Given a replaced helper, when KUE starts, then it is refused; and the enrollment file is unreadable without the Keychain.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-306",
+    "NFR-04"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S5-03",
+   "epic": "E2",
+   "sprint": 5,
+   "title": "Threat model v1 complete",
+   "ac": "Given every entry point, when the document is read, then each has a control or an accepted risk signed by the owner.",
+   "role": "Architect",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "NFR-04",
+    "NFR-05"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S5-04",
+   "epic": "E2",
+   "sprint": 5,
+   "title": "Phase 2 gate: live run and sign-off",
+   "ac": "Given the Phase 2 evidence, when the owner signs the warrant, then the gate numbers are exported from the event log and committed.",
+   "role": "Scrum master",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-09 (Phase 2 warrant)"
+  },
+  {
+   "id": "S6-01",
+   "epic": "E3",
+   "sprint": 6,
+   "title": "Promise object: a deadline or commitment with due date, source and owner",
+   "ac": "Given a promise without a due date, when it is created, then KUE asks for one before accepting it.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-501"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S6-02",
+   "epic": "E3",
+   "sprint": 6,
+   "title": "Promise lifecycle: open, overdue, kept, dropped, missed, with 48 hours of grace (rule carried over from NUX)",
+   "ac": "Given a promise past its due time, when 48 hours pass with no answer, then it becomes missed, leaves the open list and stays on the record; a missed promise is never removed silently.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-502",
+    "FR-503",
+    "FR-504",
+    "FR-506"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S6-03",
+   "epic": "E3",
+   "sprint": 6,
+   "title": "Document watcher: a watched folder with on-device text recognition",
+   "ac": "Given a scanned bill dropped into the watched folder, when one minute passes, then its text is recognised on the device, a ledger record exists, and no network request was made.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-401",
+    "FR-402",
+    "NFR-01",
+    "NFR-11"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S6-04",
+   "epic": "E3",
+   "sprint": 6,
+   "title": "Extraction of what matters: who, what, amount, due date, each with a confidence and a rule check",
+   "ac": "Given 50 of the owner's real documents, when they are read, then amount and due date are right on at least 90%, and every low-confidence item is asked about, never guessed. Each check reports one of four results (passed, failed, not run, inconclusive), and a field that was looked for and not found is recorded differently from one never looked for.",
+   "role": "Data engineer",
+   "points": 8,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Benchmark report",
+   "status": "Not started",
+   "requirements": [
+    "FR-403",
+    "FR-404",
+    "FR-405",
+    "FR-406",
+    "FR-407",
+    "NFR-13",
+    "CHK-01",
+    "CHK-02",
+    "CHK-03",
+    "CHK-04",
+    "CHK-06"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S6-05",
+   "epic": "E3",
+   "sprint": 6,
+   "title": "Recurring items: subscriptions, renewals and annual deadlines detected and projected forward",
+   "ac": "Given two bills from the same sender a month apart, when the second arrives, then KUE proposes a recurring item and asks before creating future promises.",
+   "role": "Data engineer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-409",
+    "CHK-05",
+    "CHK-08"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S7-01",
+   "epic": "E3",
+   "sprint": 7,
+   "title": "Calendar and reminders read with permission",
+   "ac": "Given calendar permission denied, when KUE starts, then it says so and works without it; granted, events stay local and deadlines can refer to them.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-410",
+    "FR-801"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S7-02",
+   "epic": "E3",
+   "sprint": 7,
+   "title": "Mail watcher: test the options, decide, and read mail read-only",
+   "ac": "Given the options (mail already on the Mac, or a direct mailbox connection), when the test ends, then one is chosen with its privacy and permission cost written down, and a bill arriving by mail becomes a promise.",
+   "role": "Architect",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Decision record",
+   "status": "Not started",
+   "requirements": [
+    "FR-408",
+    "FR-411",
+    "NFR-02",
+    "CHK-07"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S7-03",
+   "epic": "E3",
+   "sprint": 7,
+   "title": "Responsibility: a standing rule about what must stay true, with the deadlines and cases that belong to it",
+   "ac": "Given a responsibility such as 'my car is always legal to drive', when the owner adopts it, then KUE lists what it must watch, links the existing deadlines and cases to it, and shows its state as In control, Needs you or At risk.",
+   "role": "Business analyst",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-507",
+    "FR-508",
+    "FR-510",
+    "CHK-11"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-01",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Morning board: Handled, Needs your yes, Coming up, produced every day at a set time",
+   "ac": "Given a morning, when the board is produced, then every line traces to a ledger record and items needing the owner come first. At most three questions are asked of the owner at once.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-601",
+    "FR-602",
+    "FR-603"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-02",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Reminders delivered on the Mac inside the interruption policy",
+   "ac": "Given a due promise, when its time comes, then the first proactive reminder is delivered and recorded in the ledger. The owner can answer kept, not yet or dropped from the notification itself. After three 'not yet' answers the question changes to: drop it, or make it smaller? An item whose words show distress is no longer chased.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-604",
+    "FR-605",
+    "FR-606",
+    "FR-607"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-03",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Coming-up view: the next 30, 60 and 90 days of deadlines and money due, as a chart",
+   "ac": "Given the open promises, when the view opens, then each appears on its date and the total money due per week is charted.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-608"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-04",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Responsibilities view with days of margin: how long before anything lapses, and what will need the owner next",
+   "ac": "Given the open deadlines under a responsibility, when the view opens, then the nearest lapse date and the days of margin are shown, and a responsibility with less margin than its preparation time is marked At risk before the date arrives.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-508",
+    "FR-509"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-05",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Interruption policy: importance, urgency, quiet hours, daily budget",
+   "ac": "Given the policy, when KUE wants to remind the owner, then no reminder is sent outside it; only the owner can edit it.",
+   "role": "Business analyst",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-604"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-06",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Kept Rate computed from promises, and reported as lift over the person's own baseline",
+   "ac": "Given all promises, when Kept Rate is computed, then every promise has a due date and the figure matches a hand count. The baseline is asked once, before the first board, and never again; a skipped baseline is recorded as skipped, not as zero.",
+   "role": "Data engineer",
+   "points": 2,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-505",
+    "FR-609",
+    "FR-610"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S8-07",
+   "epic": "E3",
+   "sprint": 8,
+   "title": "Phase 3 gate: the owner runs his real life on the daily loop for 7 days; sign-off",
+   "ac": "Given seven days of the owner's real documents and deadlines, when the gate is reviewed, then extraction accuracy and Kept Rate are measured and the warrant is signed.",
+   "role": "Scrum master",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-03"
+  },
+  {
+   "id": "S9-01",
+   "epic": "E4",
+   "sprint": 9,
+   "title": "Risk score per action: severity, occurrence, detection, mapped to approval levels 0 to 4",
+   "ac": "Given any action, when its risk is scored, then it has default values approved by the owner; an unknown action scores highest.",
+   "role": "Business analyst",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "FR-701"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S9-02",
+   "epic": "E4",
+   "sprint": 9,
+   "title": "Yes, Not yet or No on every prepared item, signed and bound to its content",
+   "ac": "Given a signed yes, when the item's content changes, then the signature is invalid; a No requires a reason.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-702",
+    "FR-703",
+    "CHK-13"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S9-03",
+   "epic": "E4",
+   "sprint": 9,
+   "title": "Case binder v1: a checklist of required documents per case, percent complete, missing items named",
+   "ac": "Given a case (tax season, a renewal, a claim), when documents arrive, then each is matched to a checklist item, percent complete updates, and the missing items are listed by name. Every checklist item always exists, whatever the case type requires. Two documents in a case that disagree on a name, number, amount or date are reported with the page of each value.",
+   "role": "Developer",
+   "points": 8,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-705",
+    "FR-706",
+    "FR-707",
+    "FR-709",
+    "CHK-09",
+    "CHK-10"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S9-04",
+   "epic": "E4",
+   "sprint": 9,
+   "title": "Developer ID signing and notarisation, so other people can install KUE",
+   "ac": "Given a clean Mac, when KUE is installed, then it opens without a security warning and keeps its permissions after an update.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-1101"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S10-01",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Onboarding v1: permissions explained, watched folder chosen, first board quickly",
+   "ac": "Given a new user, when they start unaided, then they see a board with their own first item within 10 minutes. The baseline question is asked once, before the first board.",
+   "role": "Business analyst",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-401",
+    "FR-610",
+    "FR-801",
+    "FR-802",
+    "NFR-16"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S10-02",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Explain-back in plain words: why KUE thinks this is due, with the source line shown",
+   "ac": "Given any item on the board, when the user asks why, then the exact line of the source document is shown; a sentence with no source is removed.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-704",
+    "CHK-12"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S10-03",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Feedback: 'this is wrong' corrects the item and becomes a work order",
+   "ac": "Given a wrong item, when the user corrects it, then the correction is applied, the reason is kept, and a work order exists.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-804"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S10-04",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Data controls v1: see everything kept, forget one item or one source, wipe everything",
+   "ac": "Given one source, when the user tells KUE to forget it, then what was learned from it is removed and the raw database shows it gone.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-805",
+    "FR-806",
+    "FR-807",
+    "FR-808"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S10-05",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Monthly score v1: deadlines kept, items late, items handled, with a trend chart",
+   "ac": "Given a month of promises, when the score is shown, then each number matches a hand count from the ledger.",
+   "role": "Data engineer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-611"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S10-06",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Alpha: five people the owner knows install KUE locally",
+   "ac": "Given five invited people, when one week passes, then at least four have a board with their own real items and each one's feedback is recorded.",
+   "role": "Owner",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-04"
+  },
+  {
+   "id": "S10-07",
+   "epic": "E4",
+   "sprint": 10,
+   "title": "Phase 4 gate and sign-off",
+   "ac": "Given the alpha evidence and one case binder at 100%, when the owner signs the warrant, then Phase 5 may start.",
+   "role": "Scrum master",
+   "points": 1,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [
+    "FR-709"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S11-01",
+   "epic": "E5",
+   "sprint": 11,
+   "title": "Work queue and scheduler: KUE keeps watching with the window closed",
+   "ac": "Given a document arriving at night, when the window is closed, then it is read and appears on the next morning board.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-901"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S11-02",
+   "epic": "E5",
+   "sprint": 11,
+   "title": "Standing approvals for classes of low-risk work",
+   "ac": "Given a standing approval, when it is created, then it has a scope, a limit and an expiry, and it cannot cover levels 3 or 4.",
+   "role": "Architect",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-902"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S11-03",
+   "epic": "E5",
+   "sprint": 11,
+   "title": "Andon: stop-the-line conditions",
+   "ac": "Given a failed invariant, repeated failure, heat or unknown state, when it occurs, then the queue pauses within one tick and says why.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-904",
+    "CHK-14"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S12-01",
+   "epic": "E5",
+   "sprint": 12,
+   "title": "Unattended policy: only work under a standing approval runs",
+   "ac": "Given a queued step above any standing approval, when the night shift reaches it, then it stops and appears in Needs your yes.",
+   "role": "Architect",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-903"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S12-02",
+   "epic": "E5",
+   "sprint": 12,
+   "title": "Crash recovery for an interrupted step",
+   "ac": "Given a crash in the middle of a step, when KUE restarts, then the step is marked unknown and verified, never assumed successful.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-905"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S12-03",
+   "epic": "E5",
+   "sprint": 12,
+   "title": "Seven-night soak on the owner's Mac",
+   "ac": "Given seven nights, when the soak ends, then at least 95% of scheduled runs started, no success is unverified and every stop is explained.",
+   "role": "QA tester",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "FR-906",
+    "NFR-07",
+    "NFR-14"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S12-04",
+   "epic": "E5",
+   "sprint": 12,
+   "title": "Resource profile while always on: CPU, memory, heat, power",
+   "ac": "Given a week always on, when resources are profiled, then the profile is committed and KUE is seen to slow itself under heat.",
+   "role": "Data engineer",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Benchmark report",
+   "status": "Not started",
+   "requirements": [
+    "FR-907"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S12-05",
+   "epic": "E5",
+   "sprint": 12,
+   "title": "Retention gate: do the alpha users come back? Continue, change or stop",
+   "ac": "Given two weeks of alpha use, when it is reviewed, then days-opened per week is known for each user and the owner records one decision: continue, change the product, or stop.",
+   "role": "Owner",
+   "points": 2,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Decision record",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-05 (stop point)"
+  },
+  {
+   "id": "S12-06",
+   "epic": "E5",
+   "sprint": 12,
+   "title": "Phase 5 gate and sign-off",
+   "ac": "Given the soak evidence, when the owner signs the warrant, then always-on mode is allowed for alpha users.",
+   "role": "Scrum master",
+   "points": 1,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-09 (Phase 5 warrant)"
+  },
+  {
+   "id": "S13-01",
+   "epic": "E6",
+   "sprint": 13,
+   "title": "Tool registry: every action declared with level, privacy class, risk, verifier, rollback",
+   "ac": "Given an action with no declaration, when it is requested, then the broker refuses it; an unavailable tool is reported as unavailable.",
+   "role": "Architect",
+   "points": 8,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-1001"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S13-02",
+   "epic": "E6",
+   "sprint": 13,
+   "title": "Draft replies and letters for the owner to send",
+   "ac": "Given a notice needing a reply, when KUE prepares a draft, then the draft cites the document it answers and KUE sends nothing itself. A draft is marked as a draft everywhere it appears and never counts toward a case's percent complete.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-708",
+    "FR-1002",
+    "CHK-10"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S13-03",
+   "epic": "E6",
+   "sprint": 13,
+   "title": "Form helper: fills a copy of a form from known facts and shows each field's source",
+   "ac": "Given a form, when KUE fills a copy, then every filled field shows where the value came from and unknown fields are left empty and listed.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-1003"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S14-01",
+   "epic": "E6",
+   "sprint": 14,
+   "title": "Case binder v2: export a complete binder with an index for an accountant, insurer or agency",
+   "ac": "Given a case at 100%, when it is exported, then one file holds every document in checklist order with an index, and the export is recorded.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-710"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S14-02",
+   "epic": "E6",
+   "sprint": 14,
+   "title": "Payment preparation: payee, amount and due date lined up; the owner pays",
+   "ac": "Given a bill due, when KUE prepares it, then payee, amount, due date and source are shown together and KUE initiates no payment.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-1004"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S14-03",
+   "epic": "E6",
+   "sprint": 14,
+   "title": "Hostile-content defence: a document or mail is data, never an instruction",
+   "ac": "Given 50 documents and mails carrying hidden instructions, when KUE reads them, then it takes no action and changes no policy.",
+   "role": "QA tester",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-412",
+    "FR-1005"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S14-04",
+   "epic": "E6",
+   "sprint": 14,
+   "title": "Alpha fixes, most frequent issues first",
+   "ac": "Given the alpha issue list, when the sprint ends, then every issue reported by two or more users is fixed or has a dated work order.",
+   "role": "Developer",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-07 (alpha fixes)"
+  },
+  {
+   "id": "S14-05",
+   "epic": "E6",
+   "sprint": 14,
+   "title": "Phase 6 gate and sign-off",
+   "ac": "Given the Phase 6 evidence, when the owner signs the warrant, then drafting and form filling are allowed for alpha users.",
+   "role": "Scrum master",
+   "points": 1,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-09 (Phase 6 warrant)"
+  },
+  {
+   "id": "S15-01",
+   "epic": "E7",
+   "sprint": 15,
+   "title": "Security review against the threat model",
+   "ac": "Given the review, when it closes, then no critical or high finding is open and each fix has a warrant.",
+   "role": "QA tester",
+   "points": 8,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "NFR-01",
+    "NFR-02",
+    "NFR-06"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S15-02",
+   "epic": "E7",
+   "sprint": 15,
+   "title": "Performance pass: memory, CPU, cold start, battery",
+   "ac": "Given the budgets, when KUE is measured on the owner's Mac, then they are met and the numbers are in the ledger.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Benchmark report",
+   "status": "Not started",
+   "requirements": [
+    "NFR-12"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S15-03",
+   "epic": "E7",
+   "sprint": 15,
+   "title": "Corrective action flow: contain, root cause, fix, prevent",
+   "ac": "Given a wrong item found after a yes, when it is logged, then a corrective action opens and closes only with a linked regression test.",
+   "role": "QA tester",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-1103"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S15-04",
+   "epic": "E7",
+   "sprint": 15,
+   "title": "Installer and update path",
+   "ac": "Given an update, when it is installed, then the ledger and permissions are preserved.",
+   "role": "Developer",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-1102"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S15-05",
+   "epic": "E7",
+   "sprint": 15,
+   "title": "User guide and in-app help in plain language",
+   "ac": "Given the guide, when a new user reads it, then they can complete the first three tasks without asking for help.",
+   "role": "Business analyst",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "FR-1104",
+    "NFR-18"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S16-01",
+   "epic": "E7",
+   "sprint": 16,
+   "title": "Onboarding v2 from what the alpha users struggled with",
+   "ac": "Given the alpha findings, when onboarding is revised, then a new user reaches a first board in under 10 minutes on a second test.",
+   "role": "Business analyst",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-802",
+    "NFR-16"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S16-02",
+   "epic": "E7",
+   "sprint": 16,
+   "title": "Wider beta: 20 to 30 invited users, local installs only",
+   "ac": "Given the beta, when it has run one week, then at least 15 users have a board with their own real items and their feedback is recorded as work orders.",
+   "role": "Owner",
+   "points": 5,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-06"
+  },
+  {
+   "id": "S16-03",
+   "epic": "E7",
+   "sprint": 16,
+   "title": "Phone companion: decision and design note",
+   "ac": "Given the need to see the morning board on a phone, when the note is written, then it states how the board reaches a phone without any server that can read it, and what it costs to build.",
+   "role": "Architect",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-10; feature F-43"
+  },
+  {
+   "id": "S17-01",
+   "epic": "E7",
+   "sprint": 17,
+   "title": "14-day owner soak completes (started in Sprint 16)",
+   "ac": "Given 14 days of the owner's real life, when the scorecard is read, then Kept Rate is at least 85%, extraction accuracy at least 90%, coverage 100% and escapes under 5 per 100.",
+   "role": "QA tester",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Ledger query",
+   "status": "Not started",
+   "requirements": [
+    "NFR-13",
+    "NFR-14",
+    "NFR-15"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S17-02",
+   "epic": "E7",
+   "sprint": 17,
+   "title": "Beta fixes, most frequent issues first",
+   "ac": "Given the beta issue list, when the sprint ends, then every issue reported by two or more users is fixed or has a dated work order.",
+   "role": "Developer",
+   "points": 8,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-07 (beta fixes)"
+  },
+  {
+   "id": "S17-03",
+   "epic": "E7",
+   "sprint": 17,
+   "title": "Backup and restore drill, recovery document",
+   "ac": "Given a backup, when it is restored on a second user account, then KUE runs with the ledger intact.",
+   "role": "Developer",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Live run on Mac",
+   "status": "Not started",
+   "requirements": [
+    "FR-1105",
+    "NFR-21"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S17-04",
+   "epic": "E7",
+   "sprint": 17,
+   "title": "Phase 7 gate and sign-off",
+   "ac": "Given the hardening and beta evidence, when the owner signs the warrant, then the release candidate may be cut.",
+   "role": "Scrum master",
+   "points": 2,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-09 (Phase 7 warrant)"
+  },
+  {
+   "id": "S18-01",
+   "epic": "E8",
+   "sprint": 18,
+   "title": "Release candidate, full regression and live suite",
+   "ac": "Given the release candidate, when both suites run, then every gate is green and every registry proof is re-dated.",
+   "role": "QA tester",
+   "points": 5,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Test run",
+   "status": "Not started",
+   "requirements": [
+    "FR-308",
+    "NFR-20"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S18-02",
+   "epic": "E8",
+   "sprint": 18,
+   "title": "Price, packaging, landing page copy, privacy policy and terms draft",
+   "ac": "Given the beta evidence, when the package is reviewed, then price and terms are decided by the owner and the legal texts are marked for professional review.",
+   "role": "Owner",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "No",
+   "evidence": "Decision record",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-10"
+  },
+  {
+   "id": "S18-03",
+   "epic": "E8",
+   "sprint": 18,
+   "title": "Operations runbook: maintenance loops, defect handling, patch cadence",
+   "ac": "Given the runbook, when a defect is reported, then the steps to contain, fix and verify it are written and have been rehearsed once.",
+   "role": "Scrum master",
+   "points": 2,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [
+    "NFR-21",
+    "NFR-22"
+   ],
+   "serves": ""
+  },
+  {
+   "id": "S18-04",
+   "epic": "E8",
+   "sprint": 18,
+   "title": "Release 2 outline: phone companion, always-on host or encrypted cloud, family sharing, PPAP pack",
+   "ac": "Given the outline, when the owner reads it, then scope, cost range and the first three epics are stated.",
+   "role": "Architect",
+   "points": 3,
+   "ownerAtMac": "No",
+   "unattended": "Yes",
+   "evidence": "Document",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-10; features F-43 to F-46"
+  },
+  {
+   "id": "S18-05",
+   "epic": "E8",
+   "sprint": 18,
+   "title": "Production sign-off: the owner signs the Release 1 warrant",
+   "ac": "Given all phase warrants, when the owner signs the release warrant, then Release 1 is in production and operation begins the next Monday.",
+   "role": "Owner",
+   "points": 1,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Signed warrant",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "BO-09"
+  }
+ ]
+}
