@@ -211,7 +211,7 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Signed",
    "requirements": [
     "NFR-05"
    ],
