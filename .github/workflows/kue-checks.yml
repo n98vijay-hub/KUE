@@ -1,0 +1,100 @@
+# KUE checks: what GitHub tests on its own machine for every pull request.
+#
+# Three checks, each required before a merge into kue/release-1 or main:
+#   Ledger rules   stories move only in the allowed ways (see docs/process/CHANGE-CONTROL.md)
+#   Core tests     cargo test -p lantern-core
+#   Window tests   type check and vitest
+#
+# Not run here: the shell tests (cargo test -p lantern). They start the real
+# sensing helper and stay on the owner's Mac until a story makes the
+# hardware-free part of them run on a clean machine.
+#
+# Never add a self-hosted runner to this workflow while the repository is public.
+
+name: KUE checks
+
+on:
+  pull_request:
+    branches: ["main", "kue/release-*"]
+  push:
+    branches: ["main", "kue/release-*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kue-checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ledger:
+    name: Ledger rules
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check how the stories moved
+        env:
+          EVENT: ${{ github.event_name }}
+          TARGET: ${{ github.base_ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -eu
+          GUARD=.github/scripts/ledger_guard.py
+          if [ "$EVENT" = "pull_request" ] && [ "$TARGET" != "main" ]; then
+            # Use the rules as they stand on the branch being merged into, so a
+            # pull request cannot loosen the rules it is judged by.
+            if git show "$BASE_SHA:$GUARD" > "$RUNNER_TEMP/ledger_guard.py" 2>/dev/null; then
+              GUARD="$RUNNER_TEMP/ledger_guard.py"
+            fi
+            python3 "$GUARD" --base "$BASE_SHA" --head "$HEAD_SHA"
+          elif [ "$EVENT" = "pull_request" ]; then
+            # A release into main carries many stories at once. Each was checked
+            # on its way into the integration branch; here only consistency.
+            python3 "$GUARD" --check "$HEAD_SHA"
+          else
+            python3 "$GUARD" --check HEAD
+          fi
+
+  core:
+    name: Core tests
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Tool versions
+        run: rustc --version && cargo --version
+
+      - name: Run the core tests
+        run: cargo test -p lantern-core --locked
+
+  window:
+    name: Window tests
+    runs-on: macos-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "lts/*"
+          cache: npm
+
+      - name: Install exactly what package-lock.json lists
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Run the window tests
+        run: npx vitest run

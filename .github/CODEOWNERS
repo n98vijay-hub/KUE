@@ -1,0 +1,48 @@
+# KUE: the places only the owner may change.
+#
+# GitHub will not merge a pull request that touches a path listed here until
+# the owner has approved it. The crew account can open the pull request; it
+# cannot approve it. The procedure is in docs/process/CHANGE-CONTROL.md.
+#
+# The last matching line wins. This file is used from the branch a pull
+# request goes INTO, so a pull request cannot change who owns what for itself.
+
+# 1. Acceptance. A work order is the owner's yes to what will be built.
+/docs/work/*/work-order.md          @n98vijay-hub
+
+# 2. Sign-off. The record of what the owner tested, and his signature.
+/docs/signoff/                      @n98vijay-hub
+
+# 3. Change control. Scope changes, the procedure, the laws, the requirements.
+/docs/changes/                      @n98vijay-hub
+/docs/process/                      @n98vijay-hub
+/docs/product/rules.md              @n98vijay-hub
+/docs/product/requirements.json     @n98vijay-hub
+
+# 4. The gates themselves, and the crew's own instructions.
+/.github/                           @n98vijay-hub
+/.claude/                           @n98vijay-hub
+/CLAUDE.md                          @n98vijay-hub
+/.gitignore                         @n98vijay-hub
+/SECURITY.md                        @n98vijay-hub
+/LICENSE                            @n98vijay-hub
+
+# 5. Dependencies. Nothing is added or upgraded without the owner's yes.
+/Cargo.toml                         @n98vijay-hub
+/Cargo.lock                         @n98vijay-hub
+/core/Cargo.toml                    @n98vijay-hub
+/src-tauri/Cargo.toml               @n98vijay-hub
+/package.json                       @n98vijay-hub
+/package-lock.json                  @n98vijay-hub
+
+# 6. Security-critical product code, as listed in docs/product/rules.md.
+/core/src/authz.rs                  @n98vijay-hub
+/core/src/privacy.rs                @n98vijay-hub
+/core/src/safety.rs                 @n98vijay-hub
+/core/src/actions.rs                @n98vijay-hub
+/core/src/transaction.rs            @n98vijay-hub
+/core/src/capabilities.rs           @n98vijay-hub
+/auth/                              @n98vijay-hub
+/src-tauri/tauri.conf.json          @n98vijay-hub
+/src-tauri/Info.plist               @n98vijay-hub
+/src-tauri/capabilities/            @n98vijay-hub

@@ -44,7 +44,8 @@ You never edit source code or tests. You run only commands that read. You write 
 **The crew's own rules**
 - A change under a security-critical path without the owner's recorded approval.
 - A new dependency. A weakened, deleted or ignored test. A secret, key or `.env` content in the diff.
-- A change to `main`, a push, a deleted branch.
+- A commit on `main` or `kue/release-1`, a push by anyone but the lead, a deleted branch.
+- Personal content about to be published: a real name other than the owner's, a real address, account, message or document in code, a fixture, a document or a commit message.
 
 ## What you write in review.md
 

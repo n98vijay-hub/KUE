@@ -19,7 +19,7 @@
    "id": "E0",
    "name": "Foundation and build crew",
    "firstSprint": 0,
-   "lastSprint": 0,
+   "lastSprint": 1,
    "outcome": "One repository, one truth, agents building overnight",
    "gate": "main equals the integration branch. Two stories built unattended overnight. Local models benchmarked on the owner's own documents."
   },
@@ -170,7 +170,7 @@
   {
    "id": "S0-06",
    "epic": "E0",
-   "sprint": 0,
+   "sprint": 1,
    "title": "Keep-awake setup and watchdog",
    "ac": "Given a 12-hour unattended run on power, when a builder run is killed, then it is restarted within 5 minutes and the restart is recorded.",
    "role": "Developer",
@@ -246,6 +246,21 @@
    "status": "Not started",
    "requirements": [],
    "serves": "BO-01; BR-20"
+  },
+  {
+   "id": "S0-11",
+   "epic": "E0",
+   "sprint": 0,
+   "title": "Change control on GitHub: protected lines, required checks, and acceptance and sign-off gates proven by a gate test",
+   "ac": "Given the rulesets are on, when the crew pushes straight to kue/release-1, GitHub refuses; when a pull request touches no protected file and its checks pass, it merges without approval; when a pull request adds a sign-off record, it cannot merge until the owner approves; when a pull request marks a story Signed with no record, the Ledger rules check fails. Each result is recorded in docs/process/GATE-TEST.md.",
+   "role": "Architect",
+   "points": 3,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Demo",
+   "status": "Not started",
+   "requirements": [],
+   "serves": "CR-001"
   },
   {
    "id": "S1-01",

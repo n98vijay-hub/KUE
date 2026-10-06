@@ -50,3 +50,5 @@ KILLED
 *.log
 # The owner's planning material and manual-test documents. Never committed.
 KUE Life Back Office/
+Claude outputs/
+docs/plan/

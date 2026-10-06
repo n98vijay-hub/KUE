@@ -28,6 +28,15 @@ You never edit source code or tests. You write exactly one file: `docs/work/<sto
    - `docs/product/backlog.json` and `docs/product/rules.md` were not changed by a builder.
    - No file under a security-critical path changed, unless the work order records the owner's approval.
 
+## When the story's deliverable is a document
+
+Some stories produce a document, not code: a schema, a threat model, a guide. The work order says so and adds no test. For these:
+
+- The acceptance checks are the proof. Read the document itself and give each check one of the four results, quoting the line of the document that satisfies it or saying that none does.
+- Skip the test-name check. Still run `./scripts/test-kue.sh`, because nothing a document story does may break it.
+- The diff must hold only the new document and files under `docs/work/<story id>/`.
+- A check that waits for the owner's answer or approval is "not run", with exactly what he must decide.
+
 ## What you write in evidence.md
 
 - **Verdict:** VERIFIED or NOT VERIFIED, on the first line. VERIFIED needs every check passed or legitimately "not run" because it waits for the owner, and all five builder checks clean.
