@@ -191,7 +191,7 @@
    "role": "Business analyst",
    "points": 3,
    "ownerAtMac": "No",
-   "unattended": "Yes",
+   "unattended": "No",
    "evidence": "Document",
    "status": "Not started",
    "requirements": [
@@ -1160,7 +1160,8 @@
     "FR-807",
     "FR-808"
    ],
-   "serves": ""
+   "serves": "",
+   "note": "Found 6 October 2026: the erase-everything function (erase_all in core/src/store.rs) leaves the measurement table (perception_samples) and the timing table (stage_timings). Fix and test it in this story under FR-807."
   },
   {
    "id": "S10-05",
