@@ -41,6 +41,7 @@
       "Bash(gh pr checks *)",
       "Bash(gh pr create *)",
       "Bash(gh pr comment *)",
+      "Bash(gh pr edit * --body-file *)",
       "Bash(gh pr merge * --merge)",
       "Bash(gh run list *)",
       "Bash(gh run view *)"
@@ -52,7 +53,6 @@
       "Bash(git worktree remove *)",
       "Bash(git worktree prune *)",
       "Bash(gh pr close *)",
-      "Bash(gh pr edit *)",
       "Bash(gh pr ready *)",
       "Bash(gh release *)",
       "Bash(npm install *)",

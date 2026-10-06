@@ -18,10 +18,30 @@ The crew account is a machine account. It has no approval rights because GitHub 
 | Gate | Earned credit | What the owner sees | What he does | What GitHub enforces |
 | --- | --- | --- | --- | --- |
 | **1. Acceptance** | Planned, 10% | A pull request named `Accept <story>`. It holds the work order: what will be built in plain words, and the checks that will prove it | Reads it. Approves, or comments what to change | The work order is a file only he owns. No approval, no merge |
-| **2. Build and test** | Verified, 80% | A pull request named `Build <story>`: the change, the test results, the independent evidence, the safety review | Nothing, unless it touches a protected file | Three checks must pass on GitHub's own machine: Ledger rules, Core tests, Window tests. A story cannot become Verified without an accepted work order, evidence that says VERIFIED and a review that says PASS |
+| **2. Build and test** | Verified, 80% | A pull request named `Build <story>`: the change, the test results, the independent evidence, the safety review | Nothing, unless it touches a protected file | Four checks must pass on GitHub's own machine: Ledger rules, Core tests, Window tests, Owner brief. A story cannot become Verified without an accepted work order, evidence that says VERIFIED and a review that says PASS |
 | **3. UAT and sign-off** | Signed, 100% | A pull request named `Sign-off <story>`. It holds the record of what he tested himself and what he saw | Tests at his Mac with `/kue-sign`. Approves the record | The record is a file only he owns. A story cannot become Signed without it. His approval is the signature; GitHub keeps who and when |
 
 UAT means user acceptance testing: the owner uses the thing himself and says what he saw. A check he did not do is recorded as not done. It is never recorded as passed.
+
+## What every pull request tells the owner
+
+Nobody should approve what he cannot read. So every pull request, of every kind, opens with a brief written for the owner in plain words, on one screen:
+
+| Part | What it answers |
+| --- | --- |
+| What this is | One sentence |
+| What changes if you approve | Each file or group, named for what it is: what it is now, what it becomes |
+| What does not change | What a reader might fear is touched and is not |
+| Why | The story or the request it comes from |
+| How it was checked | Each check, who or what ran it, the result |
+| Not checked | What, and why |
+| After you approve | What happens next, and who does it |
+| To undo | How it is reversed if it turns out wrong |
+| Your action | Approve, test first, or none |
+
+A fourth check, **Owner brief**, reads the description and refuses a pull request whose brief is missing a part, is longer than one screen, or still has a placeholder in it. The check cannot tell whether the brief is true or clear. If a brief does not let the owner see what he is approving, he writes a comment saying so and does not approve.
+
+A comment is never an approval. Only the Approve button is.
 
 ## The other two kinds of change
 
@@ -68,7 +88,7 @@ Every claim traces to something a person can open.
 
 ## What this procedure does not prove
 
-- The three checks run the core and window tests. The shell tests, and anything that needs a camera, microphone, Touch ID or the screen, run only on the owner's Mac. They are covered by the verifier's evidence and by UAT, not by GitHub.
+- The checks on GitHub run the core and window tests. The shell tests, and anything that needs a camera, microphone, Touch ID or the screen, run only on the owner's Mac. They are covered by the verifier's evidence and by UAT, not by GitHub.
 - The evidence and the safety review are written by agents. They are independent of the builder, and they are still not a human review.
 - The owner's approval proves he approved. It does not prove he read the record. Once a sprint he audits one signed story end to end (BR-16).
 

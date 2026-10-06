@@ -82,7 +82,7 @@ A story is Verified only when all of these hold:
 3. `./scripts/test-kue.sh` passes with no test deleted, skipped or ignored to get there.
 4. The verifier, in a separate run from the builder, wrote `evidence.md`.
 5. The guardian wrote `review.md` with PASS.
-6. The work is committed on its story branch and merged into `kue/release-1` through a build pull request, with the three checks on GitHub green: Ledger rules, Core tests, Window tests.
+6. The work is committed on its story branch and merged into `kue/release-1` through a build pull request, with every required check on GitHub green: Ledger rules, Core tests, Window tests and Owner brief.
 
 Verified is 80%. A story is Signed only when the owner has tested it himself and approved its sign-off record on GitHub.
 
