@@ -654,7 +654,8 @@
    "requirements": [
     "NFR-09"
    ],
-   "serves": ""
+   "serves": "",
+   "note": "Found 6 October 2026, line numbers as of commit 28f0115. Three faults to fix in this story. (1) False tick under --live: scripts/test-kue.sh line 50 names ask_the_real_model, but in src-tauri/src/lib.rs that function (line 2111) is not a test: its description and its test mark (lines 2041 to 2043) were left behind when model_latency_against_prompt_size was inserted after them, so the function keeps only its ignore mark (line 2110) and the name matches no test; scripts/test-kue.sh line 53 prints a tick whenever the test tool reports success, which it does when nothing ran. (2) A test counted twice: model_latency_against_prompt_size, src-tauri/src/lib.rs line 2064, carries two test marks, its own at line 2062 and the stray one at line 2043. (3) Tests that stop early and still count as passed: in src-tauri/src/lib.rs the tests print 'skipped' and return when a helper, the model or a folder is missing, at lines 1832, 1890, 1921, 1998, 2011, 2020, 2065, 2070, 2112, 2122, 2172, 2333, 2443, 2447, 2894 and 2916; scripts/test-kue.sh line 27 adds up only the totals, so an early stop is reported as a pass. The early return at line 2722 is deliberate (the second-process half of an s9 test) and is not a fault."
   },
   {
    "id": "S5-01",
