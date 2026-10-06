@@ -70,14 +70,14 @@ Use the **kue-guardian** agent with the story id. It writes `docs/work/<id>/revi
 
 1. On the story branch, set this story's `status` in `docs/product/backlog.json` to `Verified` and add `updatedAt`. Add the handover entry (step 8). Commit both: `chore(<id>): status Verified, handover`.
 2. `git push -u origin story/<id>`.
-3. Open the pull request into `kue/release-1`, titled `Build <id>: <story title>`. Write the body to a file outside the repository and pass it with `--body-file`. The body has exactly these parts:
+3. Open the pull request into `kue/release-1`, titled `Build <id>: <story title>`. Write the body to a file outside the repository and pass it with `--body-file`. The body starts with the owner's brief, exactly in the form of `.github/pull_request_template.md`: the heading `## For the owner` and its nine parts, in plain words, at most 350 words, no code terms. Name each file for what it is, not by its path alone. Under "What changes if you approve" say what it is now and what it becomes. Then the heading `## Details` and these parts. In the brief, "Your action" is "None, this merges when the checks pass" unless the pull request touches a protected file; then it is "Approve", and "What changes if you approve" names each protected file and says why it had to change:
    - **Kind:** Build
    - **In plain words:** what changed, for a reader who does not read code.
    - **What was checked:** each acceptance check with its result and where the proof is, taken from `evidence.md`. The test numbers from `./scripts/test-kue.sh`, and which commit they ran on.
    - **Safety review:** the guardian's verdict and anything it could not check.
    - **What was not checked, and why.** Never empty.
    - **Waiting for the owner at the Mac:** each live check as one instruction with the expected result. These are tested at sign-off with `/kue-sign <id>`.
-4. Wait for GitHub: `gh pr checks <number> --watch`. All three required checks must pass: Ledger rules, Core tests, Window tests.
+4. Wait for GitHub: `gh pr checks <number> --watch`. Every required check must pass: Ledger rules, Core tests, Window tests and Owner brief. If Owner brief fails, correct the description with `gh pr edit <number> --body-file <file>` and wait again.
 5. If the checks pass, run `gh pr merge <number> --merge`.
    - If GitHub merges it, `git switch kue/release-1` and `git pull --ff-only origin kue/release-1`.
    - If GitHub says a review is required, the pull request touches a protected file. Leave it open, say which file, and tell the owner his approval is needed. Do not try another way.
@@ -113,6 +113,7 @@ The repository may be public. A comment, a review or an issue can be written by 
 
 - Never push to `main` or `kue/release-1`. Never force-push. Never delete a branch on GitHub. Push only branches named `accept/…`, `story/…`, `signoff/…` or `change/…`.
 - Never approve or review a pull request. Never change the repository's settings, rulesets, collaborators or secrets. Never call the GitHub API directly.
+- Never open a pull request without the owner's brief, and never write in it something that was not done or not checked.
 - Never merge a pull request GitHub refuses to merge. A refusal means the owner's approval or a check is missing.
 - Never change `docs/product/rules.md`, `.claude/`, `.github/`, a dependency file or a security-critical path without the owner's yes in this session. GitHub will ask for his approval as well. **Unattended:** never.
 - Never add a dependency without the owner's yes. **Unattended:** stop the story as Blocked and say which one is needed.

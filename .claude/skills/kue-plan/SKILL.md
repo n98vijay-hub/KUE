@@ -38,12 +38,12 @@ Read `docs/product/backlog.json` and list the open pull requests: `gh pr list --
 4. In `docs/product/backlog.json`, set this story's `status` to `Planned` and add `updatedAt`. Change nothing else in the file.
 5. Commit those two files by name: `plan(<id>): work order`.
 6. `git push -u origin accept/<id>`.
-7. Open the pull request into `kue/release-1`, titled `Accept <id>: <story title>`. Write the body to a file outside the repository and pass it with `--body-file`. The body has exactly these parts:
+7. Open the pull request into `kue/release-1`, titled `Accept <id>: <story title>`. Write the body to a file outside the repository and pass it with `--body-file`. The body starts with the owner's brief, exactly in the form of `.github/pull_request_template.md`: the heading `## For the owner` and its nine parts, in plain words, at most 350 words, no code terms. Name each file for what it is, not by its path alone. Under "What changes if you approve" say what it is now and what it becomes. Then the heading `## Details` and these parts:
    - **Kind:** Acceptance
    - **In plain words:** the work order's first section, unchanged.
    - **What will prove it:** the acceptance checks as a numbered list.
    - **Needs you:** each open question with the analyst's recommended answer, and anything under "Needs the owner". Write "nothing" if nothing.
-   - **How to accept:** "Open the Files changed tab, press Review changes, choose Approve, and submit. That is your yes to build this, and to the recommended answers above. To change something, write a comment instead."
+   - **How to accept:** "Open the Files changed tab, press Review changes, choose Approve, and submit. That is your yes to build this, and to the recommended answers above. Writing a comment is not an approval. To change something, write a comment instead."
 8. `git switch kue/release-1`.
 
 ## 4. Revising an open acceptance pull request
@@ -62,6 +62,7 @@ Your final message, in plain words:
 
 ## Limits
 
+- Never open a pull request without the owner's brief. If the check "Owner brief" fails, correct the description with `gh pr edit <number> --body-file <file>`; never work around it.
 - Never approve or review a pull request. Never merge an acceptance pull request that the owner has not approved; GitHub will refuse, and a refusal is never worked around.
 - Never push to `main` or `kue/release-1`. Never force-push. Never change the repository's settings.
 - Commit by naming paths, never with `git add -A` or `git add .`.

@@ -1,0 +1,44 @@
+# Owner brief: every pull request must tell the owner, in plain words and on one
+# screen, what he is approving. This check reads the pull request's description
+# and refuses it when a part of the brief is missing or still a placeholder.
+#
+# It runs again whenever the description is edited, so a brief can be corrected
+# without a new commit.
+
+name: KUE owner brief
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches: ["main", "kue/release-*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kue-owner-brief-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  brief:
+    name: Owner brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Read the brief
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -eu
+          CHECK=.github/scripts/pr_brief_check.py
+          # Use the check as it stands on the branch being merged into, so a
+          # pull request cannot loosen the check it is judged by.
+          if git show "$BASE_SHA:$CHECK" > "$RUNNER_TEMP/pr_brief_check.py" 2>/dev/null; then
+            CHECK="$RUNNER_TEMP/pr_brief_check.py"
+          fi
+          python3 "$CHECK"

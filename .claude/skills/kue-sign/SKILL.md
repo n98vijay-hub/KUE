@@ -64,7 +64,7 @@ Ask him to choose. Use the argument if he gave one, and still do steps 2 and 3 f
    Add `updatedAt`.
 4. Commit both files by name: `signoff(<id>): record for the owner, <decision>`.
 5. `git push -u origin signoff/<id>`.
-6. Open the pull request into `kue/release-1`, titled `Sign-off <id>: <story title> (<decision>)`. The body is the new section of the record, then: "**To sign:** open the Files changed tab, press Review changes, choose Approve, and submit. Your approval is your signature. To change the record, write a comment instead."
+6. Open the pull request into `kue/release-1`, titled `Sign-off <id>: <story title> (<decision>)`. Write the body to a file outside the repository and pass it with `--body-file`. It starts with the owner's brief, exactly in the form of `.github/pull_request_template.md`: the heading `## For the owner` and its nine parts, in plain words, at most 350 words. "What this is" says this is his signature on the story. "How it was checked" gives the count of checks he tested himself and their results. "Your action" is "Approve". Then the heading `## Details`, **Kind:** Sign-off, and the new section of the record, then: "**To sign:** open the Files changed tab, press Review changes, choose Approve, and submit. Your approval is your signature. Writing a comment is not an approval. To change the record, write a comment instead."
 7. `git switch kue/release-1`.
 
 ## 6. Say it
