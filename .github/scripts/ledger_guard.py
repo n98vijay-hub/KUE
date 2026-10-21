@@ -180,7 +180,7 @@ def check_pull_request(base, head, problems, notes):
 
     # A sign-off record and the status must agree.
     for path in sorted(changed):
-        match = re.match(r"^docs/signoff/(S[0-9]+-[0-9]+)\.md$", path)
+        match = re.match(r"^docs/signoff/([A-Z][0-9]+-[0-9]+)\.md$", path)
         if not match:
             continue
         sid = match.group(1)
