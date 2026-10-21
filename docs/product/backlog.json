@@ -86,6 +86,14 @@
    "lastSprint": 18,
    "outcome": "Release 1 warrant signed",
    "gate": "14-day scorecard meets targets. Release warrant signed by the owner."
+  },
+  {
+   "id": "A1",
+   "name": "First slice through the gate",
+   "firstSprint": null,
+   "lastSprint": null,
+   "outcome": "One file write from Claude Desktop is held, approved with Touch ID, verified against the file on disk and receipted",
+   "gate": "The owner signs A1-01 after his own test at the Mac"
   }
  ],
  "stories": [
@@ -115,9 +123,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Git log",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-02 (one repository, one truth)"
+   "serves": "BO-02 (one repository, one truth)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-03",
@@ -130,9 +140,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-02 (the work survives the loss of the Mac)"
+   "serves": "BO-02 (the work survives the loss of the Mac)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-04",
@@ -145,12 +157,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Benchmark report",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-19",
     "NFR-22"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-05",
@@ -163,9 +177,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Git log",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BR-16; agents AG-08 to AG-10"
+   "serves": "BR-16; agents AG-08 to AG-10",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-06",
@@ -178,9 +194,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "Agent AG-11 (watchdog)"
+   "serves": "Agent AG-11 (watchdog)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-07",
@@ -193,12 +211,14 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-101",
     "FR-808"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-08",
@@ -211,11 +231,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-05"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-09",
@@ -243,9 +265,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Decision record",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-01; BR-20"
+   "serves": "BO-01; BR-20",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S0-11",
@@ -274,7 +298,7 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-101",
     "FR-102",
@@ -282,7 +306,9 @@
     "NFR-03",
     "CHK-14"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S1-02",
@@ -295,11 +321,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-104"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S1-03",
@@ -312,11 +340,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-105"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S1-04",
@@ -329,11 +359,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-106"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S1-05",
@@ -346,11 +378,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-107"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S1-06",
@@ -363,11 +397,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-108"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S1-07",
@@ -380,9 +416,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-01"
+   "serves": "BO-01",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S2-01",
@@ -395,11 +433,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-109"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S2-02",
@@ -412,11 +452,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-201"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S2-03",
@@ -429,12 +471,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-202",
     "NFR-18"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S2-04",
@@ -447,11 +491,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-203"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S2-05",
@@ -464,11 +510,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-204"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S2-06",
@@ -481,9 +529,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Decision record",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-01 (stop point)"
+   "serves": "BO-01 (stop point)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S3-01",
@@ -496,11 +546,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-205"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S3-02",
@@ -513,11 +565,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-206"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S3-03",
@@ -530,11 +584,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-207"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S3-04",
@@ -547,13 +603,15 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-208",
     "NFR-17",
     "NFR-18"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S3-05",
@@ -566,9 +624,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-02; BR-16 (owner audit)"
+   "serves": "BO-02; BR-16 (owner audit)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S3-06",
@@ -581,9 +641,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-02; BR-17 (re-baseline once)"
+   "serves": "BO-02; BR-17 (re-baseline once)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S4-01",
@@ -596,11 +658,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-301"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S4-02",
@@ -613,12 +677,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-302",
     "FR-303"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S4-03",
@@ -631,11 +697,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-304"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S4-04",
@@ -648,12 +716,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-305",
     "NFR-08"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S4-05",
@@ -666,12 +736,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-09"
    ],
    "serves": "",
-   "note": "Found 6 October 2026, line numbers as of commit 28f0115. Three faults to fix in this story. (1) False tick under --live: scripts/test-kue.sh line 50 names ask_the_real_model, but in src-tauri/src/lib.rs that function (line 2111) is not a test: its description and its test mark (lines 2041 to 2043) were left behind when model_latency_against_prompt_size was inserted after them, so the function keeps only its ignore mark (line 2110) and the name matches no test; scripts/test-kue.sh line 53 prints a tick whenever the test tool reports success, which it does when nothing ran. (2) A test counted twice: model_latency_against_prompt_size, src-tauri/src/lib.rs line 2064, carries two test marks, its own at line 2062 and the stray one at line 2043. (3) Tests that stop early and still count as passed: in src-tauri/src/lib.rs the tests print 'skipped' and return when a helper, the model or a folder is missing, at lines 1832, 1890, 1921, 1998, 2011, 2020, 2065, 2070, 2112, 2122, 2172, 2333, 2443, 2447, 2894 and 2916; scripts/test-kue.sh line 27 adds up only the totals, so an early stop is reported as a pass. The early return at line 2722 is deliberate (the second-process half of an s9 test) and is not a fault."
+   "note": "Found 6 October 2026, line numbers as of commit 28f0115. Three faults to fix in this story. (1) False tick under --live: scripts/test-kue.sh line 50 names ask_the_real_model, but in src-tauri/src/lib.rs that function (line 2111) is not a test: its description and its test mark (lines 2041 to 2043) were left behind when model_latency_against_prompt_size was inserted after them, so the function keeps only its ignore mark (line 2110) and the name matches no test; scripts/test-kue.sh line 53 prints a tick whenever the test tool reports success, which it does when nothing ran. (2) A test counted twice: model_latency_against_prompt_size, src-tauri/src/lib.rs line 2064, carries two test marks, its own at line 2062 and the stray one at line 2043. (3) Tests that stop early and still count as passed: in src-tauri/src/lib.rs the tests print 'skipped' and return when a helper, the model or a folder is missing, at lines 1832, 1890, 1921, 1998, 2011, 2020, 2065, 2070, 2112, 2122, 2172, 2333, 2443, 2447, 2894 and 2916; scripts/test-kue.sh line 27 adds up only the totals, so an early stop is reported as a pass. The early return at line 2722 is deliberate (the second-process half of an s9 test) and is not a fault.",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S5-01",
@@ -684,12 +756,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Benchmark report",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-307",
     "NFR-10"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S5-02",
@@ -702,12 +776,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-306",
     "NFR-04"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S5-03",
@@ -720,12 +796,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-04",
     "NFR-05"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S5-04",
@@ -738,9 +816,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-09 (Phase 2 warrant)"
+   "serves": "BO-09 (Phase 2 warrant)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S6-01",
@@ -753,11 +833,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-501"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S6-02",
@@ -770,14 +852,16 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-502",
     "FR-503",
     "FR-504",
     "FR-506"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S6-03",
@@ -790,14 +874,16 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-401",
     "FR-402",
     "NFR-01",
     "NFR-11"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S6-04",
@@ -810,7 +896,7 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Benchmark report",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-403",
     "FR-404",
@@ -824,7 +910,9 @@
     "CHK-04",
     "CHK-06"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S6-05",
@@ -837,13 +925,15 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-409",
     "CHK-05",
     "CHK-08"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S7-01",
@@ -856,12 +946,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-410",
     "FR-801"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S7-02",
@@ -874,14 +966,16 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Decision record",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-408",
     "FR-411",
     "NFR-02",
     "CHK-07"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S7-03",
@@ -894,14 +988,16 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-507",
     "FR-508",
     "FR-510",
     "CHK-11"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-01",
@@ -914,13 +1010,15 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-601",
     "FR-602",
     "FR-603"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-02",
@@ -933,14 +1031,16 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-604",
     "FR-605",
     "FR-606",
     "FR-607"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-03",
@@ -953,11 +1053,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-608"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-04",
@@ -970,12 +1072,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-508",
     "FR-509"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-05",
@@ -988,11 +1092,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-604"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-06",
@@ -1005,13 +1111,15 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-505",
     "FR-609",
     "FR-610"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S8-07",
@@ -1024,9 +1132,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-03"
+   "serves": "BO-03",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S9-01",
@@ -1039,11 +1149,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-701"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S9-02",
@@ -1056,13 +1168,15 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-702",
     "FR-703",
     "CHK-13"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S9-03",
@@ -1075,7 +1189,7 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-705",
     "FR-706",
@@ -1084,7 +1198,9 @@
     "CHK-09",
     "CHK-10"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S9-04",
@@ -1097,11 +1213,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1101"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-01",
@@ -1114,7 +1232,7 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-401",
     "FR-610",
@@ -1122,7 +1240,9 @@
     "FR-802",
     "NFR-16"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-02",
@@ -1135,12 +1255,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-704",
     "CHK-12"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-03",
@@ -1153,11 +1275,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-804"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-04",
@@ -1170,7 +1294,7 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-805",
     "FR-806",
@@ -1178,7 +1302,9 @@
     "FR-808"
    ],
    "serves": "",
-   "note": "Found 6 October 2026: the erase-everything function (erase_all in core/src/store.rs) leaves the measurement table (perception_samples) and the timing table (stage_timings). Fix and test it in this story under FR-807."
+   "note": "Found 6 October 2026: the erase-everything function (erase_all in core/src/store.rs) leaves the measurement table (perception_samples) and the timing table (stage_timings). Fix and test it in this story under FR-807.",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-05",
@@ -1191,11 +1317,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-611"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-06",
@@ -1208,9 +1336,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-04"
+   "serves": "BO-04",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S10-07",
@@ -1223,11 +1353,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-709"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S11-01",
@@ -1240,11 +1372,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-901"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S11-02",
@@ -1257,11 +1391,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-902"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S11-03",
@@ -1274,12 +1410,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-904",
     "CHK-14"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S12-01",
@@ -1292,11 +1430,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-903"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S12-02",
@@ -1309,11 +1449,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-905"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S12-03",
@@ -1326,13 +1468,15 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-906",
     "NFR-07",
     "NFR-14"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S12-04",
@@ -1345,11 +1489,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Benchmark report",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-907"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S12-05",
@@ -1362,9 +1508,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Decision record",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-05 (stop point)"
+   "serves": "BO-05 (stop point)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S12-06",
@@ -1377,9 +1525,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-09 (Phase 5 warrant)"
+   "serves": "BO-09 (Phase 5 warrant)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S13-01",
@@ -1392,11 +1542,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1001"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S13-02",
@@ -1409,13 +1561,15 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-708",
     "FR-1002",
     "CHK-10"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S13-03",
@@ -1428,11 +1582,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1003"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S14-01",
@@ -1445,11 +1601,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-710"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S14-02",
@@ -1462,11 +1620,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1004"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S14-03",
@@ -1479,12 +1639,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-412",
     "FR-1005"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S14-04",
@@ -1497,9 +1659,11 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-07 (alpha fixes)"
+   "serves": "BO-07 (alpha fixes)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S14-05",
@@ -1512,9 +1676,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-09 (Phase 6 warrant)"
+   "serves": "BO-09 (Phase 6 warrant)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S15-01",
@@ -1527,13 +1693,15 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-01",
     "NFR-02",
     "NFR-06"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S15-02",
@@ -1546,11 +1714,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Benchmark report",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-12"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S15-03",
@@ -1563,11 +1733,13 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1103"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S15-04",
@@ -1580,11 +1752,13 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1102"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S15-05",
@@ -1597,12 +1771,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1104",
     "NFR-18"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S16-01",
@@ -1615,12 +1791,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-802",
     "NFR-16"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S16-02",
@@ -1633,9 +1811,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-06"
+   "serves": "BO-06",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S16-03",
@@ -1648,9 +1828,11 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-10; feature F-43"
+   "serves": "BO-10; feature F-43",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S17-01",
@@ -1663,13 +1845,15 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Ledger query",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-13",
     "NFR-14",
     "NFR-15"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S17-02",
@@ -1682,9 +1866,11 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-07 (beta fixes)"
+   "serves": "BO-07 (beta fixes)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S17-03",
@@ -1697,12 +1883,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Live run on Mac",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-1105",
     "NFR-21"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S17-04",
@@ -1715,9 +1903,11 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-09 (Phase 7 warrant)"
+   "serves": "BO-09 (Phase 7 warrant)",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S18-01",
@@ -1730,12 +1920,14 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Test run",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "FR-308",
     "NFR-20"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S18-02",
@@ -1748,9 +1940,11 @@
    "ownerAtMac": "No",
    "unattended": "No",
    "evidence": "Decision record",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-10"
+   "serves": "BO-10",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S18-03",
@@ -1763,12 +1957,14 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [
     "NFR-21",
     "NFR-22"
    ],
-   "serves": ""
+   "serves": "",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S18-04",
@@ -1781,9 +1977,11 @@
    "ownerAtMac": "No",
    "unattended": "Yes",
    "evidence": "Document",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-10; features F-43 to F-46"
+   "serves": "BO-10; features F-43 to F-46",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
   },
   {
    "id": "S18-05",
@@ -1796,9 +1994,27 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Signed warrant",
-   "status": "Not started",
+   "status": "Blocked",
    "requirements": [],
-   "serves": "BO-09"
+   "serves": "BO-09",
+   "blockedReason": "Frozen by CR-002",
+   "updatedAt": "2026-10-21"
+  },
+  {
+   "id": "A1-01",
+   "epic": "A1",
+   "sprint": null,
+   "title": "One file through the gate (SLICE-01)",
+   "ac": "See docs/work/A1-01/work-order.md, section 2: 18 acceptance checks. Given Claude Desktop asks to create a new file in ~/AssayLab, Assay holds it, asks the owner with Touch ID, forwards exactly what he approved, verifies the file on disk and writes a tamper-evident receipt; anything outside the lab, any overwrite and any unknown tool is refused without asking.",
+   "role": "Architect",
+   "points": null,
+   "ownerAtMac": "Yes",
+   "unattended": "No",
+   "evidence": "Demo plus automated tests",
+   "status": "Not started",
+   "updatedAt": "2026-10-21",
+   "requirements": [],
+   "serves": "CR-002"
   }
  ]
 }
