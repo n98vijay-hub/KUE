@@ -3,10 +3,11 @@
 Story: A1-01, epic A1 "First slice through the gate". Lead role: Architect. Evidence type: Demo plus automated tests. Owner at the Mac: Yes, for the user acceptance test only. Unattended: No. The story adds an approval path, and AS-08 forbids unattended runs on security code.
 Serves: change request CR-002. Design source: `docs/assay/PHASE-1-STARTING-POINT.md` §6.
 Written 21 October 2026. Nothing is built until the owner approves the `Accept A1-01` pull request.
+Revised 21 October 2026 by the owner's decision (CR-003): the agent for this slice is Claude Code, not Claude Desktop. The reason is in `claude-desktop-findings.md`.
 
 ## 1. In plain words
 
-Claude Desktop will get its file tools through Assay instead of directly. When Claude asks to create a new file in `~/AssayLab`:
+A Claude Code session opened on `~/AssayLab` will get its file tools through Assay instead of directly. When Claude asks to create a new file in `~/AssayLab`:
 
 - Assay stops the request.
 - macOS shows a Touch ID prompt with the file's name, size and a short fingerprint of its content.
@@ -18,7 +19,7 @@ Anything outside the lab folder, any overwrite and any unknown tool is refused w
 
 ## 2. Acceptance checks
 
-"CI" means the check runs on GitHub for macOS and Linux, with a stand-in for Touch ID and a stand-in file server. "UAT" means you do it yourself at your Mac with real Claude Desktop and real Touch ID.
+"CI" means the check runs on GitHub for macOS and Linux, with a stand-in for Touch ID and a stand-in file server. "UAT" means you do it yourself at your Mac with a real Claude Code session opened on `~/AssayLab` and real Touch ID.
 
 | # | Check | CI | UAT |
 |---|---|---|---|
@@ -39,7 +40,7 @@ Anything outside the lab folder, any overwrite and any unknown tool is refused w
 | 15 | `kue-auth` replaced by a different binary: Assay refuses to prompt and stops the write | | ✓ |
 | 16 | Camera off and the KUE app not running: approval works through Touch ID alone | | ✓ |
 | 17 | `assay receipts show` lists each receipt in plain words: time, agent, action, decision, result | ✓ | ✓ |
-| 18 | `assay uninstall` restores Claude Desktop's configuration file byte for byte | ✓ | ✓ |
+| 18 | `assay uninstall` removes exactly what install added; `~/AssayLab/.mcp.json` is restored byte for byte, or removed if install created it | ✓ | ✓ |
 
 Each check has a test named for it, for example `a1_01_check_08_lying_server_is_failed`.
 
@@ -54,7 +55,7 @@ Each check has a test named for it, for example `a1_01_check_08_lying_server_is_
 | 5 | kue-core-builder | Approver for macOS: run `kue-auth physical "<prompt>"` (Touch ID only; a typed password cannot approve; owner's decision of 21 October 2026, replacing `strong`), after checking the helper's code-signature hash against the one recorded when it was built. A stand-in approver for CI | `assay/src/approve.rs` |
 | 6 | kue-core-builder | Independent check of the written file: not a link, still inside the lab, SHA-256 compared. Outcomes are Verified, Failed or Unconfirmed | `assay/src/verify.rs` |
 | 7 | kue-core-builder | Receipt store: SQLite with WAL and full sync. A hash chain over record headers, with a separate erasable details table (C-1). Triggers that refuse UPDATE and DELETE on headers. An anchor file holding the head sequence number and hash. Commands `assay receipts verify` and `assay receipts show` | `assay/src/receipts.rs` |
-| 8 | kue-core-builder | `assay install` and `assay uninstall` for Claude Desktop's configuration, keeping a byte-exact backup | `assay/src/install.rs` |
+| 8 | kue-core-builder | `assay install` and `assay uninstall` for the project file `~/AssayLab/.mcp.json`, which a Claude Code session opened on `~/AssayLab` reads. Install keeps a byte-exact backup, or records that it created the file. Assay never touches `claude_desktop_config.json` or `~/.claude.json` | `assay/src/install.rs` |
 | 9 | kue-core-builder | Tests for checks 1 to 14, 17 and 18, plus a stand-in file server that can be told to lie | `assay/tests/` |
 | 9a | the lead | GitHub's checks today run only the KUE core tests, and only on macOS. Add a job "Assay tests" that runs the `assay-gate` tests on macOS and on Linux for every pull request. For GitHub to refuse a merge when it fails, the owner adds it to the required checks for `kue/release-1` and `main`; the crew cannot change those settings. Added 21 October 2026 on the owner's instruction | `.github/workflows/kue-checks.yml` |
 | 10 | kue-mac-builder | Build script records `kue-auth`'s code-signature hash for step 5. **`auth/` itself is not changed** | `scripts/` |
@@ -74,18 +75,18 @@ Two things are deliberately not touched: `core/src/authz.rs` and the KUE app. Th
 
 ## 5. Not in this story
 
-Overwrite, edit, move, delete and undo. Any agent other than Claude Desktop. Agent hooks and the shell. Windows and Linux approval prompts (the CI tests still run on Linux). Any window or owner console. Learning. Earned autonomy. Rules other than the fixed scope rules above.
+Overwrite, edit, move, delete and undo. Any agent other than Claude Code. Claude Desktop is a later story; why is recorded in `claude-desktop-findings.md`. Agent hooks and the shell. Windows and Linux approval prompts (the CI tests still run on Linux). Any window or owner console. Learning. Earned autonomy. Rules other than the fixed scope rules above.
 
 ## 6. What the owner needs on the Mac before the user acceptance test
 
 1. Node.js, to run the reference filesystem MCP server. The crew pins one version and records it in the evidence.
 2. A new, empty folder `~/AssayLab`, holding test files only and nothing personal.
-3. Claude Desktop installed.
+3. Claude Code installed. The first time a session opens on `~/AssayLab`, Claude Code asks whether to use the servers in `.mcp.json`; you approve Assay's entry there.
 
 ## 7. Questions for the owner
 
 1. **The Touch ID prompt shows the file's path inside the lab, for example `notes/plan.txt`.** `kue-auth` takes its prompt as a command-line argument, so another program running as you could see that path while the prompt is open. This is acceptable for test files in `~/AssayLab`. Fixing it means changing `auth/`, which is security-critical, so it is left for a later story. Recommended: accept for this slice.
-2. **Approvals while you are away.** If you are away from the Mac, each held write waits 60 seconds and is then declined. Recommended: keep 60 seconds. The crew will measure Claude Desktop's own tool timeout and record it; if it is shorter, it will ask you before changing anything.
+2. **Approvals while you are away.** If you are away from the Mac, each held write waits 60 seconds and is then declined. Recommended: keep 60 seconds. The crew will measure Claude Code's own tool timeout, with a probe in `~/AssayLab/.mcp.json`, and record it; if it is shorter, it will ask you before changing anything.
 
 ## 8. Estimate
 
