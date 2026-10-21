@@ -47,11 +47,11 @@ Each check has a test named for it, for example `a1_01_check_08_lying_server_is_
 
 | Step | Who | What | Paths |
 |---|---|---|---|
-| 1 | kue-core-builder | New crate `assay-gate` in the workspace, producing the binary `assay`. Depends on `lantern-core` for path confinement, the kill latch and action states, on the existing `serde_json`, and on `sha2` (approved under D-3) | `assay/` (new), root `Cargo.toml`, `Cargo.lock` |
+| 1 | kue-core-builder | New crate `assay-gate` in the workspace, producing the binary `assay`. Depends on `lantern-core` for path confinement, the kill latch and action states, on the existing `serde_json`, on `sha2` (approved under D-3), and on `rusqlite` at the same version and settings as `lantern-core` (approved by the owner on 21 October 2026; it adds no new library to `Cargo.lock`) | `assay/` (new), root `Cargo.toml`, `Cargo.lock` |
 | 2 | kue-core-builder | Standard input/output pass-through for MCP messages. `tools/call` is intercepted; everything else is forwarded unchanged | `assay/src/proxy.rs` |
 | 3 | kue-core-builder | Normalise `write_file` into an action of class `file.create`. Apply the scope rules with `PermittedRoots::resolve`: inside the lab, no link escape, not existing, at most 20,000 characters | `assay/src/action.rs` |
 | 4 | kue-core-builder | Digest the action in canonical JSON. Hold it. Call the approver. Re-check the request bytes against the digest before sending | `assay/src/gate.rs` |
-| 5 | kue-core-builder | Approver for macOS: run `kue-auth strong "<prompt>"`, after checking the helper's code-signature hash against the one recorded when it was built. A stand-in approver for CI | `assay/src/approve.rs` |
+| 5 | kue-core-builder | Approver for macOS: run `kue-auth physical "<prompt>"` (Touch ID only; a typed password cannot approve; owner's decision of 21 October 2026, replacing `strong`), after checking the helper's code-signature hash against the one recorded when it was built. A stand-in approver for CI | `assay/src/approve.rs` |
 | 6 | kue-core-builder | Independent check of the written file: not a link, still inside the lab, SHA-256 compared. Outcomes are Verified, Failed or Unconfirmed | `assay/src/verify.rs` |
 | 7 | kue-core-builder | Receipt store: SQLite with WAL and full sync. A hash chain over record headers, with a separate erasable details table (C-1). Triggers that refuse UPDATE and DELETE on headers. An anchor file holding the head sequence number and hash. Commands `assay receipts verify` and `assay receipts show` | `assay/src/receipts.rs` |
 | 8 | kue-core-builder | `assay install` and `assay uninstall` for Claude Desktop's configuration, keeping a byte-exact backup | `assay/src/install.rs` |
