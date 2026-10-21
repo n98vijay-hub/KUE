@@ -92,7 +92,7 @@
    "name": "First slice through the gate",
    "firstSprint": null,
    "lastSprint": null,
-   "outcome": "One file write from Claude Desktop is held, approved with Touch ID, verified against the file on disk and receipted",
+   "outcome": "One file write from a Claude Code session is held, approved with Touch ID, verified against the file on disk and receipted",
    "gate": "The owner signs A1-01 after his own test at the Mac"
   }
  ],
@@ -2005,7 +2005,7 @@
    "epic": "A1",
    "sprint": null,
    "title": "One file through the gate (SLICE-01)",
-   "ac": "See docs/work/A1-01/work-order.md, section 2: 18 acceptance checks. Given Claude Desktop asks to create a new file in ~/AssayLab, Assay holds it, asks the owner with Touch ID, forwards exactly what he approved, verifies the file on disk and writes a tamper-evident receipt; anything outside the lab, any overwrite and any unknown tool is refused without asking.",
+   "ac": "See docs/work/A1-01/work-order.md, section 2: 18 acceptance checks. Given a Claude Code session opened on ~/AssayLab asks to create a new file in ~/AssayLab, Assay holds it, asks the owner with Touch ID, forwards exactly what he approved, verifies the file on disk and writes a tamper-evident receipt; anything outside the lab, any overwrite and any unknown tool is refused without asking.",
    "role": "Architect",
    "points": null,
    "ownerAtMac": "Yes",

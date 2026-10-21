@@ -6,7 +6,7 @@ Read this file fully before your first action.
 
 KUE is the codebase of **Assay**, a local layer that every AI agent on a person's computer connects through before it acts. It holds what needs the person, stops what breaks their rules, verifies the result independently, and keeps a tamper-evident receipt of every decision. It is built from KUE's Rust core (states, authorisation, path confinement, kill switch, privacy firewall). The camera, voice, on-device model, plans and the back-office direction are no longer part of the product; their code stays in the history.
 
-The current work is epic A1, "First slice through the gate": one file write from Claude Desktop, held, approved with Touch ID, verified against the file on disk and receipted. See `docs/work/A1-01/work-order.md`.
+The current work is epic A1, "First slice through the gate": one file write from a Claude Code session, held, approved with Touch ID, verified against the file on disk and receipted. See `docs/work/A1-01/work-order.md`.
 
 The product owner is Vijay. He does not read code. He gives the work, runs the tests that need a person at the Mac, and is the only one who signs.
 
