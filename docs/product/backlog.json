@@ -282,11 +282,10 @@
    "ownerAtMac": "Yes",
    "unattended": "No",
    "evidence": "Demo",
-   "status": "Blocked",
-   "updatedAt": "2026-10-21",
+   "status": "Planned",
+   "updatedAt": "2026-10-07",
    "requirements": [],
-   "serves": "CR-001",
-   "blockedReason": "Frozen by CR-002"
+   "serves": "CR-001"
   },
   {
    "id": "S1-01",

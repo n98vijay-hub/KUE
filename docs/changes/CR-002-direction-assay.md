@@ -5,6 +5,7 @@
 | Raised | 15 October 2026, by the owner |
 | Kind | Change of direction (replaces the 5 October back-office direction) |
 | Decision | Taken by the owner in sessions of 15 and 21 October 2026, recorded below in his words. Becomes binding when he approves the pull request that carries this file |
+| Revised | 21 October 2026, on the owner's instruction before approval: S0-11 stays open, no archive branch, counts corrected |
 
 ## What is asked
 
@@ -28,7 +29,7 @@ The evidence for this change is `docs/assay/PHASE-1-STARTING-POINT.md`. That rep
 ## What changes
 
 1. **Product statement.** The "What KUE is" section of `CLAUDE.md` is replaced with the text in the appendix. `CLAUDE.md` is a protected file, so this needs the owner's approval on the pull request.
-2. **Backlog frozen.** The 99 back-office stories in `docs/product/backlog.json` and the 133 requirements in `docs/product/requirements.json` stop being worked on. They are not deleted. A frozen copy goes on the branch `archive/back-office-2026-10` and stays there. On the release line, every back-office story not yet Built gets the status **Blocked**, with the reason "Frozen by CR-002".
+2. **Backlog frozen.** The back-office stories in `docs/product/backlog.json` and the 133 requirements in `docs/product/requirements.json` stop being worked on. They are not deleted: each story stays in the backlog with its wording unchanged, and git keeps every earlier version. On the release line, the 96 stories not yet started get the status **Blocked**, with the reason "Frozen by CR-002". S0-11 is change control, not back office, and stays open. The 2 Built stories stay Built.
 3. **New epic A1, "First slice through the gate".** Its first story is A1-01 (SLICE-01). It has its own work order in `docs/work/A1-01/`.
 4. **Laws.** Three are added to `docs/product/rules.md`, wording to be approved by the owner:
    - **BR-21.** The judgment layer may reduce how often Assay asks. It may never widen what is allowed. Stop rules and the strictest action types are decided by fixed code only.
@@ -38,7 +39,7 @@ The evidence for this change is `docs/assay/PHASE-1-STARTING-POINT.md`. That rep
 
 ## What it displaces (BR-17)
 
-Everything left in the back-office plan: 96 stories marked "Not started" and one marked "Planned" (99 stories in all, 379 points, with 0.8 points earned). Sprint 0 work that served only the back office stops. The change-control machinery, the build crew and the gate tests carry over unchanged.
+Everything left in the back-office plan: 96 stories marked "Not started", 374 points. The backlog holds 99 stories in all (379 points, with 1.1 points earned): these 96 frozen, S0-11 (Planned, 3 points) kept open, and 2 Built stories that stay Built. Sprint 0 work that served only the back office stops. The change-control machinery, the build crew and the gate tests carry over unchanged.
 
 ## What it costs and risks
 
